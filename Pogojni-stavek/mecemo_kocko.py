@@ -1,107 +1,21 @@
 # =============================================================================
-# Vrstni red II
-# =====================================================================@018448=
+# Mečemo kocko
+# =====================================================================@018934=
 # 1. podnaloga
-# Spodnji program naj bi za dani niz ugotovil ali predstavlja celo število.
+# Sestavi funkcijo `dvakratZapored()`, ki vrne število, ki pove, kolikokrat smo
+# vrgli kocko, da smo dvakrat zapored vrgli *6*. Če npr. mečemo
 # 
-# Žal je program "čuden" , uporablja določene nam še neznane ukaze, zato sem
-# nalogo naknadno spremenil.
+#         2, 6, 3, 3, 6, 4, 5, 6, 6
 # 
-# da pa ne bo težav ...
-# Vse kar ste že naredili (in je sintaktično prav) bo dolbilo zelen krogec.
-# torej tudi, če bio vaš "program"
-# 
-#         print(42)
-# 
-# Se bomo pa s to podnalogo srečali čez nekaj tednov ;-)
+# smo torej kocko morali vreči 9x, da smo dvakrat *zapored* vrgli *6*.
 # =============================================================================
 
-# =====================================================================@018449=
+# =====================================================================@018935=
 # 2. podnaloga
-# Spodnji program naj bi za podana dan in mesec povedal kateremu letnemu času
-# dani datum pripada. Predpostavimo, da programu vedno podamo veljaven datum.
-# V programu so izginili zamiki in premešal se je vrstni red vrstic.
-# Popravi zamike in vrstni red vrstic, da bo program smiselno deloval.
-# 
-#      if (mesec == 'marec') and (dan > 20):
-#      else:
-#      letni_cas = 'zima'
-#      if (mesec == 'september') and (dan > 22):
-#      elif mesec in ('april', 'maj', 'junij'):
-#      letni_cas = 'poletje'
-#      dan = int(input("Vnesi dan v mesecu: "))
-#      else:
-#      letni_cas = 'jesen'
-#      else:
-#      letni_cas = 'pomlad'
-#      elif mesec in ('julij', 'avgust', 'september'):
-#      letni_cas = 'zima'
-#      else:
-#      letni_cas = 'poletje'
-#      else:
-#      if (mesec == 'december') and (dan > 20):
-#      if mesec in ('januar', 'februar', 'marec'):
-#      if (mesec == 'junij') and (dan > 20):
-#      print("Letni čas je",letni_cas)
-#      letni_cas = 'pomlad'
-#      letni_cas = 'jesen'
-#      mesec = input("Vnesi mesec (npr. januar, februar, ...): ")
-# =============================================================================
-mesec = input("Vnesi mesec (npr. januar, februar, ...): ")
-dan = int(input("Vnesi dan v mesecu: "))
-if mesec in ('januar', 'februar', 'marec'):
-    if (mesec == 'marec') and (dan > 20):
-        letni_cas = 'pomlad'
-    else:
-        letni_cas = 'zima'
-
-elif mesec in ('april', 'maj', 'junij'):
-    if (mesec == 'junij') and (dan > 20):
-    
-elif mesec in ('julij', 'avgust', 'september'):
-        if (mesec == 'september') and (dan > 22):
-            letni_cas = 'jesen'
-        else:
-            letni_cas = 'poletje'
-
-        letni_cas = 'pomlad'
-
-else:
-    if (mesec == 'december') and (dan > 20):
-        letni_cas = 'zima'
-    else:
-    letni_cas = 'jesen'
-
-
-print("Letni čas je",letni_cas)
-
-
-# =====================================================================@018450=
-# 3. podnaloga
-# Spodnji program naj bi za dane stranice trikotnika ugotovil ali
-# obstaja trikotnik z danimi stranicami ter ali gre za
-# enakostranični, enakokraki ali raznostranični trikotnik.
-# V programu so izginili zamiki in premešal se je vrstni red vrstic.
-# Poleg tega se je med vrstice prikradlo še nakaj vrstic, ki niso del programa.
-# Popravi zamike in vrstni red vrstic, da bo program smiselno deloval.
-# 
-#      x = int(input("x: "))
-#      z = int(input("z: "))
-#      if x == y == z:
-#      elif x + y > z and x + z > y and y + z > x:
-#      print("Vnesena števila ne predstavljajo veljavnih dolžin stranic trikotnika.")   
-#      print("Raznostranični trikotnik")
-#      print("Enakostranični trikotnik")
-#      y = int(input("y: "))
-#      elif x != y != z and x != z:
-#      print("Pravokotni trikotnik")
-#      if x + y > z and x + z > y and y + z > x and abs(x - y) < z and abs(y - z) < x and abs(x - z) < y:    
-#      else:
-#      input("Vnesi dolžine stranic trikotnika: ")
-#      print("Enakokrak trikotnik")
-#      else:
-#      int(input("z: "))
-#      print("Vnesi dolžine stranic trikotnika: ")
+# Sestavi funkcijo `verjetnostDveh6(n)`, ki na podlagi `n` klicev
+# funkcije `dvakratZapored()` ugotovi,
+# kolikokrat smo v povprečju v `n` poskusih morali vreči kocko, da smo
+# dvakrat zapored vrgli 6.
 # =============================================================================
 
 
@@ -629,53 +543,33 @@ def _validate_current_file():
     Check.initialize(file_parts)
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ0OH0:1gIXpI:YWj0Ml7xGpiTQrZE23K5-Z7Hxv0'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODkzNH0:1gNcDR:Kmjl4dJRPwFSccN6LN59jfarpgg'
         try:
-            pass
+            import random
+            random.seed(1)
+            Check.equal("dvakratZapored()", 58)
+            random.seed(42)
+            Check.equal("dvakratZapored()", 12)
+            random.seed(2)
+            Check.equal("dvakratZapored()", 7)
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ0OX0:1gIXpI:9vQVDpGK66xSNhgtp5pPOaafc_A'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODkzNX0:1gNcDR:Pg6VH-7RmoE0C_eC9RKzmSrCYJ4'
         try:
-            vhod = [['januar', '20'], ['februar', '18'], ['marec', '21'], ['april', '1'], ['junij', '22'], ['september', '21'], ['oktober', '1'], ['december', '25']]
-            izhod = ["zima",
-                     "zima",
-                     "pomlad",
-                     "pomlad",
-                     "poletje",
-                     "poletje",
-                     "jesen",
-                     "zima"]
-            
-            for i in range(len(vhod)):
-                with Check.input(vhod[i]):
-                    if not Check.output(Check.current_part['solution'], [
-                        "Vnesi mesec (npr. januar, februar, ...): " + vhod[i][0],
-                        "Vnesi dan v mesecu: " + vhod[i][1],
-                        "Letni čas je " + izhod[i]]):
-                        break
-        except:
-            Check.error("Testi sprožijo izjemo\n  {0}",
-                        "\n  ".join(traceback.format_exc().split("\n"))[:-2])
-
-    if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ1MH0:1gIXpI:sqh3EjlFhMiP94dOh6jRmHhOkfc'
-        try:
-            vhod = [['4', '4', '4'], ['3', '6', '8'], ['5', '5', '7'], ['5', '7', '5'], ['7', '5', '5'], ['1', '2', '20']]
-            izhod = ["Enakostranični trikotnik", "Raznostranični trikotnik", "Enakokrak trikotnik", "Enakokrak trikotnik",
-                     "Enakokrak trikotnik", "Vnesena števila ne predstavljajo veljavnih dolžin stranic trikotnika."]
-            
-            for i in range(len(vhod)):
-                with Check.input(vhod[i]):
-                    if not Check.output(Check.current_part['solution'], [
-                        "Vnesi dolžine stranic trikotnika: ",
-                        "x: " + vhod[i][0],
-                        "y: " + vhod[i][1],
-                        "z: " + vhod[i][2],
-                        izhod[i]]):
-                        break
+            import random
+            random.seed(1)
+            resitev = 44.758620689655174
+            Check.equal("verjetnostDveh6(58)", resitev)
+            random.seed(42)
+            resitev = 37.38095238095238
+            Check.equal("verjetnostDveh6(42)", resitev)
+            resitev = 40.737
+            Check.equal("verjetnostDveh6(1000)", resitev)
+            # resitev = 42.1341
+            # Check.equal("verjetnostDveh6(10000)", resitev)
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])

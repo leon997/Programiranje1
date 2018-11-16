@@ -1,136 +1,63 @@
 # =============================================================================
-# Ednina, dvojina, množina
-# =====================================================================@018439=
+# Ugibaj točke
+# =====================================================================@018944=
 # 1. podnaloga
-# Napiši funkcijo `finStanje(n)`, ki kot argument sprejme količino denarja
-# na bančnem računu, podano v evrih (celih) in slovničnemu številu
-# ustrezno vrne opis finančnega stanja.
+# Miha se rad igra igro ugibanja števil. V ta namen bi rad napisal računalniški
+# program, ki bi mu izžrebal število, on pa bi ga ugibal. V pomoč mu sestavite
+# funkcijo `relacija(racunalnik, miha)`, ki sprejme dve celi števili. Funkcija
+# naj vrne niz `'premalo'`, če je število `miha` manjše od števila 
+# `racunalnik`; niz `'preveč'`, če je število `miha` večje od števila 
+# `racunalnik` in niz `'Bravo!'`, če sta števili enaki.
+# Primer:
 # 
-#      >>>finStanje(1)
-#      Stanje: 1 evro.
-#      >>>finStanje(1002)
-#      Stanje: 1002 evra.
-#      >>>finStanje(-203)
-#      Stanje: -203 evri.
-#      >>>finStanje(215)
-#      Stanje: 215 evrov.
-# 
-# Primer, če je vneseno stanje večje ali enako 1000000 evrov:
-# 
-#      >>>finStanje(1000002)
-#      Tajkun!
-# 
-# Primer, če je vneseno stanje nižje od -300 evrov: 
-# 
-#      >>>finStanje(-302)
-#      Ti si navadna zguba!
-# =============================================================================
-def finStanje(n):
-    zadnja = n % 10
-    zadnjiDve = int(str(n)[-2:])
-    str1 = ""
-    if n >= 1000000:
-        str1 = "Tajkun!"
-        return str1
-    elif n < -300:
-        str1 = "Ti si navadna zguba!"
-        return str1
-    elif n == 0:
-        str1 == "Stanje: 0 evrov."
-        return str1
-    else:
-        if zadnja == 1 and n < 10 or zadnjiDve == "01":
-            str1 = "Stanje: {} evro.".format(n)
-            return str1
-        elif zadnja == 2 and n < 10  or zadnjiDve == "02":
-            str1 = "Stanje: {} evra.".format(n)
-            return str1
-        elif zadnja == 3 and zadnja < 10 or zadnja == 4 or zadnjiDve == "03" or zadnjiDve == "04":
-            str1 = "Stanje: {} evri.".format(n)
-            return str1
-        else:
-            str1 = "Stanje: {} evrov".format(n)
-            
-# =====================================================================@018440=
-# 2. podnaloga
-# Sestavi funkcijo `stLjudi(n)`, ki kot argument sprejme poljubno naravno
-# število in nato v slovnično pravilni obliki vrne opis števila ljudi
-# v dvorani kulturnega doma (glej zglede). Dvorana sprejme največ 500 ljudi. Podatki so smiselni, torej
-# celo število, večje ali enako 0.
-# Primer za n=0:
-# 
-#      Dvorana je prazna.
-# 
-# Primer za n=1:
-# 
-#      V dvorani je 1 človek.
-# 
-# Primer za n=303:
-# 
-#      V dvorani so 303 ljudje.
-# 
-# Primer za n=500:
-# 
-#      Dvorana je polna.
-# 
-# Primer za n=502:
-# 
-#      Dvorana je polna. Zunaj sta ostala 2 človeka.
-# =============================================================================
-def stLjudi(n):
-    zadnjeSt = n % 10
-    if n == 0:
-        str1 = "Dvorana je prazna."
-        return str1
-    elif n == 1 or n == 101 or n == 201 or n == 301 or n == 401:
-        str1 = "V dvorani je {} človek.".format(n)
-        return str1
-    elif n == 2 or n == 102 or n == 202 or n == 302 or n == 402:
-        str1 = "V dvorani sta {} človeka.".format(n)
-        return str1
-    elif n == 3 or n == 103 or n == 203 or n == 303 or n == 403:
-        str1 = "V dvorani so {} ljudje.".format(n)
-        return str1
-    elif n == 4 or n == 104 or n == 204 or n == 304 or n == 404:
-        str1 = "V dvorani so {} ljudje.".format(n)
-        return str1
-    elif n == 500:
-        str1 = "Dvorana je polna."
-        return str1
-    elif n > 500:
-        ostanek = n - 500
-        if ostanek == 1 or ostanek == 101 or ostanek == 201 or ostanek == 301 or ostanek == 401:
-            str1 = "Dvorana je polna. Zunaj je ostal {} človek.".format(ostanek)
-            return str1
-        elif ostanek == 2 or ostanek == 102 or ostanek == 202 or ostanek == 302 or ostanek == 402:
-            str1 = "Dvorana je polna. Zunaj sta ostala {} človeka.".format(ostanek)
-            return str1
-        elif ostanek == 3 or ostanek == 103 or ostanek == 203 or ostanek == 303 or ostanek == 403:
-            str1 = "Dvorana je polna. Zunaj so ostali {} ljudje.".format(ostanek)
-            return str1
-        elif ostanek == 4 or ostanek == 104 or ostanek == 204 or ostanek == 304 or ostanek == 404:
-            str1 = "Dvorana je polna. Zunaj so ostali {} ljudje.".format(ostanek)
-            return str1
-        else:
-            str1 = "Dvorana je polna. Zunaj je ostalo {} ljudi.".format(ostanek)
-            return str1
-    else:
-        str1 = "V dvorani je {} ljudi.".format(n)
-        return str1
-    
-# =====================================================================@018441=
-# 3. podnaloga
-# Sestavite program, ki prebere naravno število `n` in nato izpiše niz oblike
-# 
-#     Koliko imaš limon: 103
-#     Imaš 103 limone.
-#     Koliko imaš limon: 0
-#     Imaš 0 limon.
-# 
-# pri čemer mora biti seveda vse pravilno sklanjano.
+#     >>> relacija(45, 20)
+#     'premalo'
 # =============================================================================
 
-        
+# =====================================================================@018945=
+# 2. podnaloga
+# Mihu je ugibanje v eni dimenziji počasi postalo predolgočasno. Zato je začel
+# ugibati števila, ki ležijo na celoštevilski mreži v ravnini. V ta namen
+# sestavite funkcijo `ugibaj(racunalnikX, racunalnikY, mihaX, mihaY)`, 
+# ki sprejme koordinate dveh celoštevilskih točk v ravnini.
+# 
+# Funkcija naj vrne niz `'Od prave točke si oddaljen vsaj {0}.'`, če Miha 
+# točke ni uganil in niz `'Bravo!'`, če je Miha točko uganil. Pri tem naj bo 
+# namesto `{0}` izpisana 
+# [Evklidska razdalja](https://en.wikipedia.org/wiki/Euclidean_distance) 
+# med točkama `miha` in `racunalnik`, zaokrožena navzdol na najbližje celo 
+# število.
+# 
+# Primer:
+# 
+#     >>> ugibaj(15, 15, 16, 16)
+#     'Od prave točke si oddaljen vsaj 1.'
+# =============================================================================
+
+# =====================================================================@018946=
+# 3. podnaloga
+# Miha se je tudi igre v dveh dimenzijah hitro naveličal, saj je trajala
+# predolgo. Zato si je poleg oddaljenosti od izžrebane točke zaželel vedeti še,
+# kje leži njegova točka glede na izžrebano število: v prvem, drugem,
+# tretjem ali četrtem kvadrantu.
+# 
+# Pri tem k prvemu kvadrantu štejemo tudi pozitivno $x$-os, k drugemu
+# pozitivno $y$-os, k tretjemu negativno $x$-os in k četrtemu negativno $y$-os.
+# 
+# Sestavite funkcijo `ugibaj1(racunalnikX, racunalnikY, mihaX, mihaY)`, ki naj 
+# vrne niz `'Bravo!'`, če je Miha točko uganil oz. niz `'Tvoja točka je v 
+# {0}. kvadrantu.'` (kjer je namesto `{0}` izpisana številska oznaka 
+# kvadranta).
+# 
+# Primer:
+# 
+#     >>> ugibaj1(15, 15, 16, 16)
+#     'Tvoja točka je v 1. kvadrantu.'
+# 
+#     >>> ugibaj1(15, 15, 14, 14)
+#     'Tvoja točka je v 3. kvadrantu.'
+# =============================================================================
+
 
 
 
@@ -656,83 +583,52 @@ def _validate_current_file():
     Check.initialize(file_parts)
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQzOX0:1gHVu2:5zz2dI3lYarAEzVpb7mMamqQWP0'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0NH0:1gNcDR:0C63W24air7dPTUh0hWmB_NTjPk'
         try:
-            Check.equal("finStanje(0)", 'Stanje: 0 evrov.') and  \
-            Check.equal("finStanje(1)", 'Stanje: 1 evro.') and  \
-            Check.equal("finStanje(2)", 'Stanje: 2 evra.') and  \
-            Check.equal("finStanje(3)", 'Stanje: 3 evri.') and  \
-            Check.equal("finStanje(103)", 'Stanje: 103 evri.') and  \
-            Check.equal("finStanje(113)", 'Stanje: 113 evrov.') and  \
-            Check.equal("finStanje(-3)", 'Stanje: -3 evri.') and  \
-            Check.equal("finStanje(-4)", 'Stanje: -4 evri.') and  \
-            Check.equal("finStanje(-5)", 'Stanje: -5 evrov.') and  \
-            Check.equal("finStanje(-300)", 'Stanje: -300 evrov.') and  \
-            Check.equal("finStanje(-101)", 'Stanje: -101 evro.') and  \
-            Check.equal("finStanje(202)", 'Stanje: 202 evra.') and  \
-            Check.equal("finStanje(222)", 'Stanje: 222 evrov.') and  \
-            Check.equal("finStanje(16232)", 'Stanje: 16232 evrov.') and  \
-            Check.equal("finStanje(404)", 'Stanje: 404 evri.') and  \
-            Check.equal("finStanje(555)", 'Stanje: 555 evrov.') and  \
-            Check.equal("finStanje(1000000)", 'Tajkun!') and  \
-            Check.equal("finStanje(1010000)", 'Tajkun!') and  \
-            Check.equal("finStanje(999999)", 'Stanje: 999999 evrov.') and  \
-            Check.equal("finStanje(-300)", 'Stanje: -300 evrov.') and  \
-            Check.equal("finStanje(-301)", 'Ti si navadna zguba!') and  \
-            Check.equal("finStanje(-30108)", 'Ti si navadna zguba!')
-            Check.secret("""finStanje(30108)""")
-            Check.secret("""finStanje(1081)""")
-            Check.secret("""finStanje(-108)""")
-            Check.secret("""finStanje(1083)""")
+            Check.equal("relacija(45, 20)", 'premalo') and \
+                Check.equal("relacija(40, 45)", 'preveč') and \
+                Check.equal("relacija(20, 20)", 'Bravo!')
+            Check.secret(relacija(45, 20))
+            Check.secret(relacija(15, 40))
+            Check.secret(relacija(30, 30))
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ0MH0:1gHVu2:q6BQjqHMio6GsBJAoeX6mLWX1lI'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0NX0:1gNcDR:SAa5CgNNiQE6RpAZdEPlukKhu84'
         try:
-            Check.equal("stLjudi(0)", 'Dvorana je prazna.') and \
-            Check.equal("stLjudi(1)",'V dvorani je 1 človek.') and \
-            Check.equal("stLjudi(2)",'V dvorani sta 2 človeka.') and \
-            Check.equal("stLjudi(3)",'V dvorani so 3 ljudje.') and \
-            Check.equal("stLjudi(4)",'V dvorani so 4 ljudje.') and \
-            Check.equal("stLjudi(5)",'V dvorani je 5 ljudi.') and \
-            Check.equal("stLjudi(10)",'V dvorani je 10 ljudi.') and \
-            Check.equal("stLjudi(101)",'V dvorani je 101 človek.') and \
-            Check.equal("stLjudi(202)",'V dvorani sta 202 človeka.') and \
-            Check.equal("stLjudi(303)",'V dvorani so 303 ljudje.') and \
-            Check.equal("stLjudi(404)",'V dvorani so 404 ljudje.') and \
-            Check.equal("stLjudi(499)",'V dvorani je 499 ljudi.') and \
-            Check.equal("stLjudi(500)",'Dvorana je polna.') and \
-            Check.equal("stLjudi(501)",'Dvorana je polna. Zunaj je ostal 1 človek.') and \
-            Check.equal("stLjudi(602)",'Dvorana je polna. Zunaj sta ostala 102 človeka.') and \
-            Check.equal("stLjudi(703)",'Dvorana je polna. Zunaj so ostali 203 ljudje.') and \
-            Check.equal("stLjudi(804)",'Dvorana je polna. Zunaj so ostali 304 ljudje.') and \
-            Check.equal("stLjudi(905)",'Dvorana je polna. Zunaj je ostalo 405 ljudi.')
-            Check.secret("""stLjudi(30108)""")
-            Check.secret("""stLjudi(11)""")
-            Check.secret("""stLjudi(108)""")
-            Check.secret("""stLjudi(1083)""")
-            Check.secret("""stLjudi(81)""")
-            Check.secret("""stLjudi(108)""")
-            Check.secret("""stLjudi(102)""")
+            Check.equal("ugibaj(15, 15, 16, 16)", 'Od prave točke si oddaljen vsaj 1.') and \
+                Check.equal("ugibaj(-17, 45, -17, 45)", 'Bravo!')and \
+                Check.equal("ugibaj(-17, 0, 17, 0)", 'Od prave točke si oddaljen vsaj 34.')and \
+                Check.equal("ugibaj(17, 3, 17, 0)", 'Od prave točke si oddaljen vsaj 3.')and \
+                Check.equal("ugibaj(-17, 0, -17, 5)", 'Od prave točke si oddaljen vsaj 5.')and \
+                Check.equal("ugibaj(0, 0, 10, 10)", 'Od prave točke si oddaljen vsaj 14.')
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ0MX0:1gHVu2:1e7ZM_mp3Jqyz0RGfL0EECC18go'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0Nn0:1gNcDR:3HGXRmGUEIIoNhKRIzYCEvZ-Ioc'
         try:
-            vhod = ['14', '101', '4', '202', '7', '1267', '303', '23', '111']
-            izhod = ['', 'o', 'e', 'i', '', '', 'e', '', '']
+            Check.secret(ugibaj1(15, 15, 14, 14))
+            Check.equal("ugibaj1(15, 15, 16, 16)", "Tvoja točka je v 1. kvadrantu.") and \
+                Check.equal("ugibaj1(15, 15, 15, 16)", "Tvoja točka je v 2. kvadrantu.") and \
+                Check.equal("ugibaj1(15, 15, 14, 16)", "Tvoja točka je v 2. kvadrantu.") and \
+                Check.equal("ugibaj1(-15, 15, -14, -16)", "Tvoja točka je v 4. kvadrantu.") and \
+                Check.equal("ugibaj1(-15, -15, -14, -16)", "Tvoja točka je v 4. kvadrantu.") and \
+                Check.equal("ugibaj1(-15, 15, 14, -16)", "Tvoja točka je v 4. kvadrantu.") and \
+                Check.equal("ugibaj1(-15, -15, -14, 16)", "Tvoja točka je v 1. kvadrantu.") and \
+                Check.equal("ugibaj1(15, -15, 14, -16)", "Tvoja točka je v 3. kvadrantu.")
             
-            for i in range(len(vhod)):
-                with Check.input([vhod[i]]):
-                    if not Check.output(Check.current_part['solution'], [
-                        'Koliko imaš limon: ' + vhod[i],
-                        "Imaš {0} limon{1}.".format(vhod[i], izhod[i]),
-                        ]):
-                        break
+            import random
+            seed = 1
+            random.seed(seed)
+            secrets = 100
+            
+            for _ in range(secrets):
+                data = [random.randint(-100, 100) for _ in range(4)]
+                Check.secret(ugibaj1(data[0], data[1], data[2], data[3]))
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])

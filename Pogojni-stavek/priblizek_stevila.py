@@ -1,36 +1,20 @@
 # =============================================================================
-# Datumi
-# =====================================================================@018451=
+# Približek števila π
+#
+# S pomočjo naključnih števil bomo določili približek števila π (metoda Monte Carlo)
+# =====================================================================@018937=
 # 1. podnaloga
-# Sestavite funkcijo `je_prestopno(leto)`, ki vrne `True`, kadar je `leto`
-# prestopno, in `False`, kadar ni.
+# Približek števila π lahko določimo tako, da izberemo `n` naključnih točk
+# v kvadratu [0,1]×[0,1], ter preštejemo, koliko jih leži v krogu s središčem
+# v (0,0) in polmerom 1. Če je `n` dovolj velik, mora biti razmerje med številom
+#  točk v krogu in številom vseh točk približno π/4, saj z veliko točkami
+# "pokrijemo" kvadrat oz. del kroga, ki ima ploščino 1 oziroma π/4.
+# 
+# Sestavi funkcijo `priblizekPi(st_tock)`, ki izračuna približek števila π po
+# opisani metodi. Število naključnih točk funkcija dobi kot parameter.
+# 
+# Seveda `math.pi` nima v vaši funkciji kaj početi!
 # =============================================================================
-def je_prestopno(leto):
-    if (leto % 4) == 0:
-       if (leto % 100) == 0:
-           if (leto % 400) == 0:
-               return True
-           else:
-               return False
-       else:
-           return True
-    else:
-       return False
-# =====================================================================@018452=
-# 2. podnaloga
-# Sestavite funkcijo `stevilo_dni(mesec, leto)`, ki vrne število dni danega
-# meseca (podanega s številom med 1 in 12) v danem letu.
-# =============================================================================
-#def stevilo_dni(mesec, leto):
-    
-# =====================================================================@018453=
-# 3. podnaloga
-# Sestavite funkcijo `je_veljaven_datum(dan, mesec, leto)`, ki vrne `True`
-# natanko tedaj, kadar `dan`, `mesec` in `leto` določajo veljaven datum
-# (torej `mesec` mora biti število med 1 in 12, `dan` pa mora ustrezati dnevu
-# v tem mesecu).
-# =============================================================================
-#def je_veljaven_datum(dan, mesec, leto):
 
 
 
@@ -557,45 +541,18 @@ def _validate_current_file():
     Check.initialize(file_parts)
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ1MX0:1gHVu2:YVOX1ez-wxwSnlAZnmY8WiXBF6s'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODkzN30:1gNcDR:ChIfT-_AeKlKaOETw1WrdR5yl_s'
         try:
-            Check.equal('je_prestopno(2016)', True)
-            Check.equal('je_prestopno(2015)', False)
-            Check.equal('je_prestopno(2000)', True)
-            Check.equal('je_prestopno(1900)', False)
-            for leto in range(1950, 2050):
-                Check.secret(je_prestopno(leto), leto)
-        except:
-            Check.error("Testi sprožijo izjemo\n  {0}",
-                        "\n  ".join(traceback.format_exc().split("\n"))[:-2])
-
-    if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ1Mn0:1gHVu2:ZFyt6k3QL4EY0h_pD_K2PeUKbFU'
-        try:
-            Check.equal('stevilo_dni(2, 2016)', 29)
-            Check.equal('stevilo_dni(3, 2011)', 31)
-            Check.equal('stevilo_dni(2, 2011)', 28)
-            Check.equal('stevilo_dni(4, 2011)', 30)
-            for leto in range(1999, 2017):
-                for mesec in range(1, 13):
-                    Check.secret(stevilo_dni(mesec, leto), (mesec, leto))
-        except:
-            Check.error("Testi sprožijo izjemo\n  {0}",
-                        "\n  ".join(traceback.format_exc().split("\n"))[:-2])
-
-    if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ1M30:1gHVu2:UYtlmJZiYdAVjbfGr7Q1YBGRjEU'
-        try:
-            Check.equal('je_veljaven_datum(29, 2, 2016)', True)
-            Check.equal('je_veljaven_datum(29, 3, 2011)', True)
-            Check.equal('je_veljaven_datum(29, 2, 2011)', False)
-            Check.equal('je_veljaven_datum(35, 4, 2011)', False)
-            Check.equal('je_veljaven_datum(2, 13, 2011)', False)
-            Check.equal('je_veljaven_datum(12, 3, 2016)', True)
-            for leto in range(1999, 2017):
-                for mesec in range(1, 15):
-                    for dan in range(28, 33):
-                        Check.secret(je_veljaven_datum(dan, mesec, leto), (dan, mesec, leto))
+            import random
+            if 'math.pi' in Check.current_part['solution']:
+                Check.error("Uporabljate math.pi")
+            if 'from math' in Check.current_part['solution']:
+                Check.error("Če ne potrebujete math.pi, tudi knjižnice math ne!")
+                
+            random.seed(11)
+            Check.equal("priblizekPi(10000)", 3.1376)
+            Check.equal("priblizekPi(100)", 3.12)
+            Check.equal("priblizekPi(100000)", 3.14848)
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])

@@ -1,63 +1,22 @@
 # =============================================================================
-# Biokosmiči
+# Ploščina pod valom
 #
-# Skupina slovenskih nadebudnih mladih inovatorjev se je domislila projekta
-# biokosmiči. Vrečke, v kateri so shranjeni kosmiči, ni potrebno odpirati,
-# saj se v vodi raztopi. Vrečka je užitna in brez okusa.
-# =====================================================================@018442=
+# Z metodo Monte Carlo lahko računamo tudi ploščine. Pri tem gre v grobem za to, da
+# naključno izbiramo točke na nekem pravokotniku in štejemo, koliko točk je takih, 
+# da "spadajo" k ploščini. Če razmerje med "zadetki" in vsemi točkami
+# pomnožimo s ploščino pravokotnika, dobimo približek za ploščino območja.
+# =====================================================================@018936=
 # 1. podnaloga
-# Sestavite funkcijo `nakup(imam, rabim, vrecka)`, ki izračuna, najmanj koliko
-# vrečk kosmičev moramo kupiti, če jih že imamo `imam` gramov, potrebujemo
-# jih `rabim` gramov, v posamezni vrečki pa je zapakirano `vrecka` gramov.
-# Primer:
+# Ploščino pod enim valom funkcije sinus (enaka je 2) lahko približno
+# izračunamo tudi tako, da naključno izbiramo točke na
+# pravokotniku [0, Pi] x [0, 1] in s Pi pomnožimo razmerje med točkami
+# pod valom in vsemi točkami.
 # 
-#     >>> nakup(4, 10, 3)
-#     2
+# Sestavi funkcijo `ploscinaVal(n)`, ki izračuna ploščino vala funkcije
+# `sin(x)` po opisani metodi. Število naključnih točk
+# funkcija dobi kot parameter.
 # =============================================================================
-def nakup(imam, rabim, vrecka):
-    #koliko vreck moramo še kupiti če jih že imamo  "imam" gramov, potrebujemo "rabim" gramov v posamezni
-    #vrecki pa je vrecka gramov
-    if imam >= rabim:
-        return rabim
-    else:
-        dokupi = rabim - imam
-        skupaj = 
-    stVrec = kupi / vrecka
-    if 
-    return stVrec
-# =====================================================================@018443=
-# 2. podnaloga
-# Vsaka vrečka vsebuje 125 g kosmičev, ki so sestavljeni iz 80 g ovsenih
-# kosmičev, 20 g rozin in 25 g oreščkov. Imamo že `kosmici` gramov ovsenih
-# kosmičev, `rozine` gramov rozin in `orescki` gramov oreščkov. Sestavite
-# funkcijo `napolni(kosmici, rozine, orescki, n)`, ki izračuna, koliko
-# gramov ovsenih kosmičev, rozin in oreščkov moramo še kupiti, da bomo
-# lahko napolnili `n` vrečk kosmičev (funkcija mora vrniti trojico
-# vrednosti). Primer:
-# 
-#     >>> napolni(300, 0, 65, 3)
-#     (0, 60, 10)
-# =============================================================================
-def napolni(kosmici, rozine, orescki, n):
-    '''
-        Koliko sestavin moramo še nakupiti,
-        da napolnimo n vrečk
-    '''
-    if kosmici 
-# =====================================================================@018444=
-# 3. podnaloga
-# Sestavite funkcijo `napolni2(kosmici, rozine, orescki)`, ki izračuna,
-# najmanj koliko vrečk kosmičev moramo napolniti, da bomo porabili vse
-# sestavine. Imamo že `kosmici` gramov ovsenih kosmičev, `rozine` gramov
-# rozin in `orescki` gramov oreščkov. Manjkajoče sestavine lahko pri tem
-# dokupimo. Primer:
-# 
-#     >>> napolni2(100, 40, 65)
-#     3
-# =============================================================================
-def napolni2(kosmici, rozine, orescki):
-    
-    
+
 
 
 
@@ -583,46 +542,16 @@ def _validate_current_file():
     Check.initialize(file_parts)
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ0Mn0:1gHVu2:grph5TeAgQd3mXqDeegIKOn4THg'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODkzNn0:1gNcDR:gFmUgkbpNgg97aV4RRKQTj6rjkg'
         try:
-            Check.equal("""nakup(4, 10, 3)""", 2)
-            Check.equal("""nakup(4, 11, 3)""", 3)
-            Check.equal("""nakup(10, 10, 4)""", 0)
-            Check.equal("""nakup(50, 100, 3)""", 17)
-            Check.equal("""nakup(50, 10, 4)""", 0)
-        except:
-            Check.error("Testi sprožijo izjemo\n  {0}",
-                        "\n  ".join(traceback.format_exc().split("\n"))[:-2])
-
-    if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ0M30:1gHVu2:9oEYiDXvfwkyGcXMgufoVGkUneI'
-        try:
-            Check.equal("""napolni(100, 40, 65, 2)""", (60, 0, 0))
-            Check.equal("""napolni(300, 0, 65, 3)""", (0, 60, 10))
-            Check.equal("""napolni(300, 150, 100, 5)""", (100, 0, 25))
-            Check.equal("""napolni(800, 200, 250, 10)""", (0, 0, 0))
-            Check.equal("""napolni(900, 300, 280, 10)""", (0, 0, 0))
-            Check.equal("""napolni(800, 200, 250, 20)""", (800, 200, 250))
-            Check.equal("""napolni(800, 200, 250, 11)""", (80, 20, 25))
-            Check.equal("""napolni(801, 201, 251, 11)""", (79, 19, 24))
-        except:
-            Check.error("Testi sprožijo izjemo\n  {0}",
-                        "\n  ".join(traceback.format_exc().split("\n"))[:-2])
-
-    if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ0NH0:1gHVu2:MkMQ3799w6I69oAynrphxSTBKNk'
-        try:
-            Check.equal("""napolni2(100, 40, 65)""", 3)
-            Check.equal("""napolni2(0, 0, 0)""", 0)
-            Check.equal("""napolni2(1, 0, 0)""", 1)
-            Check.equal("""napolni2(0, 1, 0)""", 1)
-            Check.equal("""napolni2(0, 0, 1)""", 1)
-            Check.equal("""napolni2(300, 0, 65)""", 4)
-            Check.equal("""napolni2(240, 50, 50)""", 3)
-            Check.equal("""napolni2(79, 19, 24)""", 1)
-            Check.equal("""napolni2(81, 21, 26)""", 2)
-            Check.equal("""napolni2(159, 21, 26)""", 2)
-            Check.equal("""napolni2(240, 19, 100)""", 4)
+            random.seed(42)
+            Check.equal('ploscinaVal(100)', 2.0106192982974678)
+            Check.equal('ploscinaVal(1000)', 2.0420352248333655)
+            Check.equal('ploscinaVal(10000)', 1.9955396535602365)
+            Check.equal('ploscinaVal(100000)', 1.9983042550953956)
+            # Check.equal('ploscinaVal(1000000)', 2.001411290229796)
+            # Check.equal('ploscinaVal(2000000)', 1.9994446532286487)
+            # Check.equal('ploscinaVal(1000000)', 2.0001420867977457)
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])

@@ -1,103 +1,98 @@
 # =============================================================================
-# Zamiki
-# =====================================================================@018445=
+# Fibonaccijevo zaporedje ostankov
+#
+# Posplošeno Fibonaccijevo zaporedje ostankov je definirano podobno kot
+# običajno 
+# [Fibonaccijevo zaporedje](https://sl.wikipedia.org/wiki/Fibonaccijevo_%C5%A1tevilo), 
+# le da si prva dva člena lahko izberemo
+# sami, vse vsote pa računamo po modulu $n$. Vsaj eden od prvih dveh
+# členov mora biti različen od $0$ (po modulu $n$), sicer dobimo zaporedje
+# samih ničel. Vsako takšno zaporedje je periodično (ko se enkrat ponovita
+# prva dva člena, se tudi vsi nadaljnji členi začnejo ponavljati).
+# 
+# V nalogi lahko predpostavite, da velja $n > 1$.
+# Pripravljeno imamo funkcijo `naslednjiClen(a, b, n)`, ki pri podanih
+# zaporednih členih `a` in `b` izračuna naslednji člen. 
+# 
+#     def naslednjiClen(a, b, n):
+#         '''Vrne naslednji člen Fibbonacijevega zaporedja ostankov'''
+#         return (a + b) % n
+# =====================================================================@018941=
 # 1. podnaloga
-# Naslednja koda vsebuje, kar se zamikov tiče, cel kup napak.
+# Če računamo nekaj zaporednih členov za začetna člena 0, 1 in za modul 2, dobimo
+# zaporedje 0, 1, 1, 0, 1, 1, 0, 1, 1 ...
+# Zaporedje ima torej periodo 3.
+# Pri  podatkih 0, 1, in 5 pa je zaporedje 0, 1, 1, 2, 3, 0, 3, 3, 1, 4, 0, 4, 4, 3, 2, 0, 2, 2, 4, 1, 0, 1, 1, 2, 3, ..
+# perioda torej kar 20!
 # 
-#         x = int(input('x: '))
-#         y = int(input('y: '))
-#         if x == 3 and y == 4:
-#             print("x je 3")
-#                print("y je morda 4, vem pa ne")
-#         if x > 2 and y < 5:
-#         print("x > 2")
-#         print("y < 5")
-#         if x < 4 and y > 3:
-#             print("x < 4")
-#                 print("y > 3")
+# Funkcija `perioda(a, b, n)` kot argumente dobi prva dva
+# člena zaporedja in število `n`, vrnila pa naj bi dolžino periode tega zaporedja.
+# Predpostavite, da velja $a < n$ in $b < n$.
 # 
-# Skopiraj jo in jo popravi! Stavkov samih ne spreminjaj, le njihove zamike!
-# Popravki morajo biti taki, da so izpisi smiselni!
+#      def perioda(a, b, n):
+#          '''Dolžina periode FZO z začetnima členoma a in b in operacijo po modulu n'''
+#          x = a
+#          y = naslednjiClen(a, b, n)
+#          dopPer = 1
+#          while x != a and y != b:
+#              x, y = y, naslednjiClen(x, y, n)
+#              dolPer = 1
+#          return dolPer
+# 
+# Vemo, da so v zgornji kodi štiri napakice in sicer v vrsticah
+# (vrstice z dok. komentarjem ne štejemo) 2, 4, 6 in 8. Popravi jih!
 # =============================================================================
 
-x = int(input('x: '))
-y = int(input('y: '))
-if x == 3 and y == 4:
-    print("x je 3")
-print("y je morda 4, vem pa ne")
-if x > 2 and y < 5:
-    print("x > 2")
-    print("y < 5")
-if x < 4 and y > 3:
-    print("x < 4")
-    print("y > 3")
-
-# =====================================================================@018446=
+# =====================================================================@018942=
 # 2. podnaloga
-# Naslednja koda predstavlja program, ki pretvarja temperaturo iz stopinj
-# Celzija v stopinje Fahrenheit in obratno. Ustrezno zamakni vrstice,
-# da bo koda pravilno delovala.
+# Oglej si funkcijo
 # 
-#          enota = input("V kateri enoti boš podal temperaturo? Vnesi 'C' ali 'F': ")
-#          stopinje = int(input("Število stopinj: "))
-#          if enota != "C" and enota != "F":
-#          print("Vnesi ustrezno enoto.")
-#          else:
-#          if enota == "C":
-#          odg = int(round((9 * stopinje) / 5 + 32))
-#          nova_enota = "Fahrenheit"
-#          elif enota == "F":
-#          odg = int(round((stopinje - 32) * 5 / 9))
-#          nova_enota = "Celzija"
-#          print("Temperatura v stopinjah", nova_enota, "je", odg, "stopinj.")
+#      def fun1(a, b, n, m):
+#          '''Vrnem nekaj v povezavi s FZO z začetnima členoma a in b in operacijo po modulu n'''
+#          x = min(a, b)
+#          q = a
+#          w = b
+#          st = 2
+#          while st <= m:
+#              y = naslednjiČlen(q, w, n)
+#              if y < x:
+#                  x = y
+#              q = w
+#              w = y
+#              st += 1
+#          return x
 # 
-# Skopiraj kodo in jo popravi! Stavkov samih ne spreminjaj, le njihove zamike!
+# S pomočjo te funkcije sestavi funkcijo `minMax(a, b, n, m)`, ki vrne 
+# najmanjši in največji člen med prvimi `m` členi FZO z začetnima členoma `a` 
+# in `b`, če se operacije izvajajo po modulu `n`.
+# 
+#          >>>minMax(0, 1, 5, 8)
+#          (0, 3)
+#          >>>minMax(1, 1, 5, 4)
+#          (1, 3)
+# 
+# Namig: Poskušaj razumeti, kaj dana funkcija počne.
+# Spremenljivkam daj smiselna imena. Npr. za `y` je očitno, da gre za člen v FZ.
+# Tudi `q` in `w` imate nekaj zveze s tem.  Čemu pa služi `x`?
 # =============================================================================
 
-
-enota = input("V kateri enoti boš podal temperaturo? Vnesi 'C' ali 'F': ")
-stopinje = int(input("Število stopinj: "))
-if enota != "C" and enota != "F":
-    print("Vnesi ustrezno enoto.")
-else:
-    if enota == "C":
-        odg = int(round((9 * stopinje) / 5 + 32))
-        nova_enota = "Fahrenheit"
-    elif enota == "F":
-        odg = int(round((stopinje - 32) * 5 / 9))
-        nova_enota = "Celzija"
-    print("Temperatura v stopinjah", nova_enota, "je", odg, "stopinj.")
-
-
-# =====================================================================@018447=
+# =====================================================================@018943=
 # 3. podnaloga
-# Naslednja koda predstavlja funkcijo, ki za dano celo število `n` vrne
-# niz `fizz`, če je `n` deljiv s 3, niz `buzz`, če je `n` deljiv s 5 ter
-# niz `fizzbuzz`, če je `n` deljiv s 3 in s 5. Popravi zamike vrstic,
-# da bo koda pravilno delovala.
+# Sestavite funkcijo `najkrajsaPerioda(a, b, m, n)`, ki vrne najmanjši
+# tak $i \in \left[m, n\right]$, pri katerem trojka `(a, b, i)`
+# minimizira dolžino periode iz prve podnaloge. Predpostavite lahko,
+# da sta argumenta `m` in `n` naravni števili in velja $m \leq n$.
+# Primer:
 # 
-#             def fizzbuzz(n):
-#          if n % 3 == 0:
-#                 if n % 5 == 0:
-#              return "fizzbuzz"
-#                     else:
-#                     return "fizz"
-#          elif n % 5 == 0:
-#                     return "buzz"
-#          return None
+#     >>> najkrajsa_perioda(2, 2, 6, 19)
+#     8
 # 
-# Skopiraj kodo in jo popravi! Stavkov samih ne spreminjaj, le njihove zamike!
+# Namig: Iz 1. podnaloge znamo izračunati dolžino periode.
+# Ta podnaloga pa bi rada samo najkrajšo periodo med vsemi FZO
+# z začetnima členoma `a` in `b`, če za modul jemljemo `n, n+1, n+2, .., m`
 # =============================================================================
 
-def fizzbuzz(n):
-    if n % 3 == 0:
-        if n % 5 == 0:
-            return "fizzbuzz"
-        else:
-            return "fizz"
-    elif n % 5 == 0:
-        return "buzz"
-    return None
+
 
 
 
@@ -622,55 +617,40 @@ def _validate_current_file():
     Check.initialize(file_parts)
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ0NX0:1gHVu2:MKvsjJLJLWR8_cSRuwFZ2WGNklI'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0MX0:1gNcDR:nuIY3a8bh3Q37T5eO1IAomMg_rw'
         try:
-            vhod = [['3', '4'], ['4', '3'],['14', '13'], ['3', '3'], ['100', '2'], ['1', '1'], ['5', '5']]
-            izhod = [['x: 3', 'y: 4', 'x je 3', 'y je morda 4, vem pa ne', 'x > 2', 'y < 5', 'x < 4', 'y > 3'],
-                     ['x: 4', 'y: 3', 'y je morda 4, vem pa ne', 'x > 2', 'y < 5'],
-                     ['x: 14', 'y: 13', 'y je morda 4, vem pa ne'],
-                     ['x: 3', 'y: 3', 'y je morda 4, vem pa ne', 'x > 2', 'y < 5'],
-                     ['x: 100', 'y: 2', 'y je morda 4, vem pa ne', 'x > 2', 'y < 5'],
-                     ['x: 1', 'y: 1', 'y je morda 4, vem pa ne'],
-                     ['x: 5', 'y: 5', 'y je morda 4, vem pa ne']]
-            
-            for i in range(len(vhod)):
-                with Check.input(vhod[i]):
-                    if not Check.output(Check.current_part['solution'], izhod[i]):
-                        break
+            Check.equal("""perioda(1, 2, 3)""", 8) and \
+                Check.equal("""perioda(0, 1, 3)""", 8) and \
+                Check.equal("""perioda(0, 1, 2)""", 3) and \
+                Check.equal("""perioda(5, 5, 10)""", 3) and \
+                Check.equal("""perioda(1, 2, 9)""", 24) and \
+                Check.equal("""perioda(2, 2, 7)""", 16)
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ0Nn0:1gHVu2:Lw-1nXME8kX4JphG3k3FL9i2V-M'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0Mn0:1gNcDR:MH31OLVSVsoJxRx0Q3uMX5eunbI'
         try:
-            vhod = [['C', '20'], ['C', '-3'],['C', '0'], ['F', '32'], ['F', '212'], ['F', '100'], ['A', '5']]
-            izhod = ['Temperatura v stopinjah Fahrenheit je 68 stopinj.',
-                     'Temperatura v stopinjah Fahrenheit je 27 stopinj.',
-                     'Temperatura v stopinjah Fahrenheit je 32 stopinj.',
-                     'Temperatura v stopinjah Celzija je 0 stopinj.',
-                     'Temperatura v stopinjah Celzija je 100 stopinj.',
-                     'Temperatura v stopinjah Celzija je 38 stopinj.',
-                     'Vnesi ustrezno enoto.']
-            
-            for i in range(len(vhod)):
-                with Check.input(vhod[i]):
-                    if not Check.output(Check.current_part['solution'], [
-                        "V kateri enoti boš podal temperaturo? Vnesi 'C' ali 'F': " + vhod[i][0],
-                        "Število stopinj: " + vhod[i][1],
-                        izhod[i]]):
-                        break
+            Check.equal("""minMax(3, 4, 6, 2)""", (3, 4)) and \
+                Check.equal("""minMax(3, 4, 6, 1)""", (3, 3)) and \
+                Check.equal("""minMax(3, 4, 6, 3)""", (1, 4)) and \
+                Check.equal("""minMax(3, 4, 6, 6)""", (0, 5)) and \
+                Check.equal("""minMax(2, 2, 7, 19)""", (0, 6)) and \
+                Check.equal("""minMax(3, 3, 8, 19)""", (0, 7)) and \
+                Check.equal("""minMax(1, 1, 23, 19)""", (1, 21)) and \
+                Check.equal("""minMax(4, 2, 11, 19)""", (0, 9)) and \
+                Check.equal("""minMax(2, 3, 7, 19)""", (0, 6))
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ0N30:1gHVu2:ldm5ZLl6iscRNsc8idWmwiezuc8'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0M30:1gNcDR:3nApgy5i8TcnXuYgnDEYn7gFcwE'
         try:
-            Check.equal("fizzbuzz(18)", 'fizz')
-            Check.equal("fizzbuzz(20)", 'buzz')
-            Check.equal("fizzbuzz(30)", 'fizzbuzz')
-            Check.equal("fizzbuzz(11)", None)
+            Check.equal("""najkrajsaPerioda(1, 1, 6, 19)""", 11)
+            Check.equal("""najkrajsaPerioda(2, 2, 6, 19)""", 8)
+            Check.equal("""najkrajsaPerioda(3, 3, 6, 19)""", 6)
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])
