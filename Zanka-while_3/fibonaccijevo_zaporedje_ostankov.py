@@ -42,7 +42,17 @@
 # Vemo, da so v zgornji kodi štiri napakice in sicer v vrsticah
 # (vrstice z dok. komentarjem ne štejemo) 2, 4, 6 in 8. Popravi jih!
 # =============================================================================
-
+def perioda(a, b, n):
+    '''
+    Dolžina periode FZO z začetnima členoma a in b in operacijo po modulu n
+    '''
+    x = a
+    y = naslednjiClen(a, b, n)
+    dopPer = 1
+    while x != a and y != b:
+        x, y = y, naslednjiClen(x, y, n)
+        dolPer = 1
+    return dolPer
 # =====================================================================@018942=
 # 2. podnaloga
 # Oglej si funkcijo

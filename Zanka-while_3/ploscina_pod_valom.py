@@ -16,9 +16,17 @@
 # `sin(x)` po opisani metodi. Število naključnih točk
 # funkcija dobi kot parameter.
 # =============================================================================
+import math, random
 
-
-
+def ploscinaVal(n):
+    """
+    fun izracuna ploščino vala funkcije sin(x).
+    n je št naključnih točk.
+    """
+    s = 0
+    for _ in range(n):
+        x = random.rand
+    
 
 
 

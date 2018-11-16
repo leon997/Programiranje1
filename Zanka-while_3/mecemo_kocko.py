@@ -9,6 +9,29 @@
 # 
 # smo torej kocko morali vreči 9x, da smo dvakrat *zapored* vrgli *6*.
 # =============================================================================
+import random
+
+def dvakratZapored():
+    """
+    fun vrne št metov kocke, dokler ni 2x zapored padla šestica
+    """
+    prvic = 1
+    drugic = 0
+    stevc = 0
+    
+    while True:
+        drugic = random.randint(1,6)
+        stevc += 1
+        if drugic == 6 and prvic == 6:
+            return stevc
+        prvic = drugic
+        
+    return stevc
+           
+
+        
+
+        
 
 # =====================================================================@018935=
 # 2. podnaloga

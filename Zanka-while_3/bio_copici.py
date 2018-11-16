@@ -32,7 +32,12 @@
 #     >>> koliko_copicev(4, 20, [423, 116, 235, 13, 119, 60])
 #     40
 # =============================================================================
-
+def koliko_copicev(dol_rocaj, dol_konica, dol_palic):
+    """
+    fun vrne št čopičev, ki jih lahko podjetje
+    s trenutno zalogo proizvede.
+    
+    """
 
 
 

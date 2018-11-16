@@ -13,7 +13,18 @@
 #     >>> relacija(45, 20)
 #     'premalo'
 # =============================================================================
-
+def relacija(racunalnik, miha):
+    """
+    sprejme dve št. fun vrne niz "premalo" če je št "miha" < "računalnik"
+    preveč če je večje, in Bravo če sta enaki 
+    """
+    if racunalnik < miha:
+        return "preveč"
+    if racunalnik > miha:
+        return "premalo"
+    if racunalnik == miha:
+        return "Bravo!"
+    
 # =====================================================================@018945=
 # 2. podnaloga
 # Mihu je ugibanje v eni dimenziji počasi postalo predolgočasno. Zato je začel

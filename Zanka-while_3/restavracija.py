@@ -18,7 +18,18 @@
 #     >>> kolikoHrane1(15, 5)
 #     10
 # =============================================================================
-
+def kolikoHrane1(potrebujemo, zaloga):
+    """
+    fun vrne količino hrane, ki jo je potrbno dokupiti
+    v $potrebujemo je kol. potrebne hrane, v %zaloga pa kol.
+    hrane na zalogi. če hrane ni potrebno dokupiti vrne 0
+    """
+    dokupi = 0
+    if potrebujemo > zaloga:
+        dokupi = potrebujemo - zaloga
+    else:
+        dokupi = 0
+    return dokupi
 # =====================================================================@018939=
 # 2. podnaloga
 # Zgornja metoda se ni najbolje obnesla, saj ni prav nič upoštevala,
@@ -41,7 +52,26 @@
 #     >>> kolikoHrane2(10,12,7, 12, 8, 5)
 #     0, 4, 2
 # =============================================================================
-
+def kolikoHrane2(potrebujemo1, potrebujemo2, potrebujemo3, zaloga1, zaloga2, zaloga3):
+    """
+    fun vrne 3 cela števila(količine dokupljene posamezne hrane)
+    """
+    if potrebujemo1 > zaloga1:
+        dokupi1 = potrebujemo1 - zaloga1
+    else:
+        dokupi1 = 0
+    if potrebujemo2 > zaloga2:
+        dokupi2 = potrebujemo2 - zaloga2
+    else:
+        dokupi2 = 0
+    if potrebujemo3 > zaloga3:
+        dokupi3 = potrebujemo3 - zaloga3
+    else:
+        dokupi3 = 0
+    if dokupi1 == 0 and dokupi2 == 0 and dokupi3 == 0:
+        return 0
+    
+    return dokupi1, dokupi2, dokupi3
 # =====================================================================@018940=
 # 3. podnaloga
 # Zgornja metoda je požela velik uspeh, a še vedno je najbolj priljubljene 
@@ -61,7 +91,24 @@
 #     >>> kolikoHrane3(15, 5)
 #     20
 # =============================================================================
+def kolikoHrane3(potrebujemo, zaloga):
+    """
+    fun vrne dvakratnik razlike, če je na zalogi < polovica
+    fun vrne trikratnik razlike, če je na zalogi < 1/4
+    """
+ 
+    if potrebujemo > zaloga:
+        dokupi = potrebujemo - zaloga
+    else:
+        dokupi = 0
+        
+    if zaloga < potrebujemo*0.25:
+        return dokupi * 3
+    if zaloga < potrebujemo*0.5:
+        return dokupi * 2
 
+    
+    return dokupi
 
 
 
