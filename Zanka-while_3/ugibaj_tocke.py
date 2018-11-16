@@ -583,7 +583,7 @@ def _validate_current_file():
     Check.initialize(file_parts)
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0NH0:1gNFJi:QRwVhmGNmNtjxtpe826_Q_iMWLo'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0NH0:1gNcDR:0C63W24air7dPTUh0hWmB_NTjPk'
         try:
             Check.equal("relacija(45, 20)", 'premalo') and \
                 Check.equal("relacija(40, 45)", 'preveč') and \
@@ -596,7 +596,7 @@ def _validate_current_file():
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0NX0:1gNFJi:hjpGXVmZ7RR3R9G4MFlXLitaGpI'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0NX0:1gNcDR:SAa5CgNNiQE6RpAZdEPlukKhu84'
         try:
             Check.equal("ugibaj(15, 15, 16, 16)", 'Od prave točke si oddaljen vsaj 1.') and \
                 Check.equal("ugibaj(-17, 45, -17, 45)", 'Bravo!')and \
@@ -609,7 +609,7 @@ def _validate_current_file():
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0Nn0:1gNFJi:ZVkLAFoluNZXy9g9S0ZEdWCS0z4'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0Nn0:1gNcDR:3HGXRmGUEIIoNhKRIzYCEvZ-Ioc'
         try:
             Check.secret(ugibaj1(15, 15, 14, 14))
             Check.equal("ugibaj1(15, 15, 16, 16)", "Tvoja točka je v 1. kvadrantu.") and \

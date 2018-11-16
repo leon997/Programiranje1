@@ -587,7 +587,7 @@ def _validate_current_file():
     Check.initialize(file_parts)
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODkzOH0:1gNFJi:k3qPhHEiMoa5b91SVd4SM0Q2V_Y'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODkzOH0:1gNcDR:QihgOMTym7Io34YCLF4cSIicyhY'
         try:
             Check.equal("kolikoHrane1(15, 5)", 10)
             Check.equal("kolikoHrane1(5, 15)", 0)
@@ -600,7 +600,7 @@ def _validate_current_file():
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODkzOX0:1gNFJi:n0TFsYe2wkCOzzt4Skq31hae4Ks'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODkzOX0:1gNcDR:I7ROaHQnaupO-cWEIcgqdMXBCKg'
         try:
             Check.equal("kolikoHrane2(10, 12, 7, 12, 8, 5)", (0, 4, 2))
             Check.equal("kolikoHrane2(2, 2, 2, 12, 8, 5)", 0)
@@ -618,7 +618,7 @@ def _validate_current_file():
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0MH0:1gNFJi:yqknCSAa3S1FCxTzARuVSqKohgA'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0MH0:1gNcDR:qP1a2FpCsG-R-4ajJDjSJeJBMh4'
         try:
             Check.equal("kolikoHrane3(200, 24)", 528) and \
                 Check.equal("kolikoHrane3(200, 25)", 525) and \

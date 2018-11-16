@@ -541,7 +541,7 @@ def _validate_current_file():
     Check.initialize(file_parts)
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODkzN30:1gNFJi:nVlvTN_Rzk02Rw0dUNf8D-bDyH0'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODkzN30:1gNcDR:ChIfT-_AeKlKaOETw1WrdR5yl_s'
         try:
             import random
             if 'math.pi' in Check.current_part['solution']:

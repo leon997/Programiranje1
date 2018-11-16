@@ -617,7 +617,7 @@ def _validate_current_file():
     Check.initialize(file_parts)
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0MX0:1gNFJi:t2mmxmHo9_kobuT6azB8HL7ZXTU'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0MX0:1gNcDR:nuIY3a8bh3Q37T5eO1IAomMg_rw'
         try:
             Check.equal("""perioda(1, 2, 3)""", 8) and \
                 Check.equal("""perioda(0, 1, 3)""", 8) and \
@@ -630,7 +630,7 @@ def _validate_current_file():
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0Mn0:1gNFJi:t6w7WFqISbG8-yMfgHFEJucAlKg'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0Mn0:1gNcDR:MH31OLVSVsoJxRx0Q3uMX5eunbI'
         try:
             Check.equal("""minMax(3, 4, 6, 2)""", (3, 4)) and \
                 Check.equal("""minMax(3, 4, 6, 1)""", (3, 3)) and \
@@ -646,7 +646,7 @@ def _validate_current_file():
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0M30:1gNFJi:k9MhHiW-qJ6_AEAvcBXnpvHKXuU'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0M30:1gNcDR:3nApgy5i8TcnXuYgnDEYn7gFcwE'
         try:
             Check.equal("""najkrajsaPerioda(1, 1, 6, 19)""", 11)
             Check.equal("""najkrajsaPerioda(2, 2, 6, 19)""", 8)

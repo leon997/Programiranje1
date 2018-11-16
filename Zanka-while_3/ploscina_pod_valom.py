@@ -542,7 +542,7 @@ def _validate_current_file():
     Check.initialize(file_parts)
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODkzNn0:1gNFJh:JtzB6qCqfcscRFMUYKMbrhNmXcQ'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODkzNn0:1gNcDR:gFmUgkbpNgg97aV4RRKQTj6rjkg'
         try:
             random.seed(42)
             Check.equal('ploscinaVal(100)', 2.0106192982974678)

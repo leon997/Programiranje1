@@ -543,7 +543,7 @@ def _validate_current_file():
     Check.initialize(file_parts)
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODkzNH0:1gNFJh:-O8Pw7fEmQy6swKseDXqX3W835U'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODkzNH0:1gNcDR:Kmjl4dJRPwFSccN6LN59jfarpgg'
         try:
             import random
             random.seed(1)
@@ -557,7 +557,7 @@ def _validate_current_file():
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODkzNX0:1gNFJh:hiJ6QY4ZlU-sD2VYHiej0GqZIWs'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODkzNX0:1gNcDR:Pg6VH-7RmoE0C_eC9RKzmSrCYJ4'
         try:
             import random
             random.seed(1)
