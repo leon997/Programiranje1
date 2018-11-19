@@ -1,38 +1,47 @@
 # =============================================================================
-# Bio čopiči
-#
-# S tekmovanja RTK 2014
-# =====================================================================@018947=
+# Ocenjevanje testov slovenščine
+# =====================================================================@018454=
 # 1. podnaloga
-# V Ajdovščini tovarna Wlahna d. o. o. proizvaja krasne veganske bio čopiče, v celoti
-# narejene iz lesa. Leseni ročaji so tako ali tako nekaj običajnega, v tej tovarni pa
-# celó konico čopiča izdelajo iz lesa iste vrste, ki ga zmeljejo in predelajo v celulozna
-# vlakna.
-# V skladišču podjetja imajo lesene palčke enake debeline, a različnih dolžin, iz
-# katerih želijo izdelati same enake čopiče. Za posamezen ročaj potrebujejo $dol_rocaj$ centimetrov
-# lesa v enem kosu. Za konico čopiča pa potrebujejo toliko zmletega lesa, kot
-# ga nastane iz $dol_konica$ centimetrov ene ali več palčk.
+# Maja je učiteljica slovenščine, ki ima težave pri pretvarjanju števila točk v
+# procente in določanju ocene. Ker ne zna programirati, potrebuje tvojo pomoč.
+# Želi, da ji sestaviš program, ki prejme število točk posameznega testa in
+# maksimalno število točk testa ter izračuna procente in določi oceno.
 # 
-# #### Naloga
-# Napiši funkcijo `koliko_copicev(dol_rocaj, dol_konica, dol_palic)`, ki vrne število čopičev, ki jih podjetje
-# s trenutno zalogo lesa lahko proizvede.
+# Kriterij za pretvorbo naj bo:
 # 
-# #### Vhodni podatki
+#     Procenti:     Ocena:
+#     100 - 90      Odlično (5)
+#     89 - 77       Prav dobro (4)
+#     76 - 63       Dobro (3)
+#     62 - 50       Zadostno (2)
+#     49 - 0        Nezadostno (1)
 # 
-#     dol_rocaj....dolžina palčke potrebne za en ročaj
-#     dol_konica...dolžina palčke potrebna za eno konico
-#     dol_palic....tabela dolžin palčk na zalogi v cm
+# Za vse ostale vrednosti naj izpiše
 # 
-# #### Izhodni podatki
+#     Napačen vnos!
 # 
-# Zaokroženo naravno število, ki predstavlja največje število čopičev, ki jih podjetje lahko proizvede.
+# Kako se podatki preberejo (predpostavi, da uporabnik zagotovo vnese dve pozitivni celi števili), pa je
+# razvidno iz zgleda:
 # 
-# #### Primer
-# 
-#     >>> koliko_copicev(4, 20, [423, 116, 235, 13, 119, 60])
-#     40
+#      >>>Vnesi doseženo število točk: 46
+#      Vnesi maksimalno število točk: 50
+#      Odlično (5)
 # =============================================================================
-
+tocke = int(input('Vnesi doseženo število točk: '))
+maxTock = int(input('Vnesi maksimalno število točk: '))
+procenti = (tocke / maxTock) * 100
+if procenti <= 100 and procenti >= 90:
+    print('Odlično (5)')
+elif procenti <= 89 and procenti >= 77:
+    print('Prav dobro (4)')
+elif procenti <= 76 and procenti >= 63:
+    print('Dobro (3)')
+elif procenti <= 62 and procenti >= 50:
+    print('Zadostno (2)')
+elif procenti <= 49 and procenti >= 0:
+    print('Nezadostno (1)')
+else:
+    print('Napačen vnos!')
 
 
 
@@ -558,48 +567,61 @@ def _validate_current_file():
     Check.initialize(file_parts)
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0N30:1gNcDR:-yfjZ6C4gm50iu320x_C7JAphfg'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ1NH0:1gNw3k:oN6Jqm60AA-UnfsBa9xywzkxmGo'
         try:
-            L0 = [423, 116, 235, 13, 119, 60]
-            L1 = [423, 116, 235, 13, 119, 60, 336, 154, 322, 56, 86, 57, 201, 369, 420, 196, 348, 379, 450, 37, 346, 258, 213, 158,
-                  379, 445, 322, 200, 435, 319, 371, 13, 152, 409, 164, 320, 436, 272, 371, 453, 96, 191, 349, 287, 164, 265, 251,
-                  218, 422, 123, 370, 290, 82, 442, 498, 175, 386, 26, 440, 187, 215, 16, 212, 398, 171, 371, 89, 269, 251, 233, 40,
-                  231, 367, 482, 329, 364, 353, 275, 15, 342, 21, 41, 2, 67, 22, 224, 306, 464, 454, 376, 156, 101, 139, 284, 207,
-                  91, 323, 494, 424, 306, 99]
-            L2 = [51, 365, 54, 500, 381, 453, 59, 207, 459, 460, 18, 435, 500, 352, 301, 454, 497, 26, 167, 266, 500, 492, 218, 108,
-                  234, 250, 324, 451, 329, 116, 161, 340, 388, 334, 104, 314, 263, 332, 276, 356, 239, 249, 193, 213, 417, 287, 120,
-                  167, 353, 172, 100, 155, 333, 369, 24, 434, 266, 11, 126, 377, 150, 117, 209, 104, 248, 461, 140, 245, 36, 175,
-                  200, 107, 135, 82, 343, 300, 218, 153, 314, 78, 129, 440, 351, 18, 257, 94, 159, 384, 37, 247, 179, 347, 391, 340,
-                  157, 290, 289, 115, 19, 294, 74]
-            L3 = [121, 216, 203, 467, 284, 253, 494, 329, 157, 267, 35, 443, 375, 259, 498, 267, 482, 462, 361, 243, 8, 233, 76,
-                  311, 485, 452, 259, 190, 418, 66, 103, 191, 214, 269, 458, 348, 99, 155, 271, 268, 458, 247, 352, 34, 390, 192,
-                  78, 152, 436, 86, 112, 116, 112, 335, 95, 42, 250, 277, 162, 201, 194, 359, 495, 121, 428, 273, 429, 470, 416,
-                  179, 343, 79, 475, 128, 325, 477, 64, 490, 61, 12, 277, 268, 378, 110, 43, 107, 411, 192, 426, 153, 296, 495, 237,
-                  19, 337, 470, 43, 420, 305, 69, 296]
-            L4 = [227, 451, 334, 286, 212, 13, 222, 396, 245, 197, 3, 305, 183, 416, 19, 182, 225, 56, 409, 414, 283, 17, 284, 342,
-                  25, 102, 321, 426, 30, 433, 225, 221, 401, 84, 384, 324, 244, 383, 442, 293, 475, 488, 258, 481, 6, 186, 261, 351,
-                  432, 403, 87, 237, 153, 189, 430, 421, 32, 168, 181, 467, 496, 86, 178, 17, 20, 434, 181, 178, 5, 186, 496, 136,
-                  147, 426, 476, 201, 493, 124, 228, 495, 214, 466, 338, 39, 208, 496, 216, 270, 355, 140, 215, 319, 217, 78, 239,
-                  274, 330, 61, 239, 464, 210]
-            L5 = [433, 410, 82, 30, 301, 37, 215, 30, 325, 305, 196, 384, 15, 262, 374, 349, 449, 433, 115, 351, 54, 77, 1, 160,
-                  135, 212, 110, 13, 165, 258, 214, 16, 53, 281, 99, 446, 446, 362, 184, 314, 149, 63, 83, 289, 40, 463, 150, 311,
-                  112, 139, 25, 410, 100, 86, 407, 258, 335, 478, 230, 302, 32, 211, 263, 236, 168, 420, 214, 298, 310, 445, 208,
-                  84, 492, 277, 424, 498, 196, 281, 276, 305, 172, 349, 387, 49, 481, 486, 187, 297, 83, 471, 483, 223, 381, 300,
-                  121, 127, 46, 186, 187, 40, 118]
-            L6 = [253, 120, 136, 171, 438, 375, 286, 330, 356, 230, 459, 192, 81, 79, 139, 22, 451, 335, 99, 272, 97, 310, 361, 159,
-                  53, 303, 153, 356, 109, 25, 308, 307, 151, 48, 62, 407, 474, 396, 289, 221, 282, 428, 159, 397, 407, 240, 150,
-                  337, 225, 246, 68, 141, 14, 153, 240, 246, 372, 264, 116, 425, 70, 305, 55, 43, 372, 86, 192, 333, 455, 28, 260,
-                  239, 8, 274, 450, 92, 201, 150, 292, 390, 15, 371, 83, 15, 149, 25, 139, 32, 113, 185, 19, 144, 174, 351, 489,
-                  341, 327, 140, 292, 195, 136]
+            vh = ['38', '40']
+            izh = 'Odlično (5)'
+            with Check.input(vh):
+                Check.output(Check.current_part['solution'], [
+                'Vnesi doseženo število točk: ' + vh[0],
+                'Vnesi maksimalno število točk: ' + vh[1],
+                izh
+            ])
             
+            vh = ['29', '35']
+            izh = 'Prav dobro (4)'
+            with Check.input(vh):
+                Check.output(Check.current_part['solution'], [
+                'Vnesi doseženo število točk: ' + vh[0],
+                'Vnesi maksimalno število točk: ' + vh[1],
+                izh
+            ])
             
-            Check.equal('koliko_copicev(4, 20, {0})'.format(L0), 40)
-            Check.equal('koliko_copicev(4, 20, {0})'.format(L1), 1054)
-            Check.equal('koliko_copicev(1, 5, {0})'.format(L2), 4154)
-            Check.equal('koliko_copicev(3, 35, {0})'.format(L3), 694)
-            Check.equal('koliko_copicev(30, 200, {0})'.format(L4), 113)
-            Check.equal('koliko_copicev(4, 20, {0})'.format(L5), 997)
-            Check.equal('koliko_copicev(4, 20, {0})'.format(L6), 931)
+            vh = ['30', '40']
+            izh = 'Dobro (3)'
+            with Check.input(vh):
+                Check.output(Check.current_part['solution'], [
+                'Vnesi doseženo število točk: ' + vh[0],
+                'Vnesi maksimalno število točk: ' + vh[1],
+                izh
+            ])
+                
+            vh = ['20', '40']
+            izh = 'Zadostno (2)'
+            with Check.input(vh):
+                Check.output(Check.current_part['solution'], [
+                'Vnesi doseženo število točk: ' + vh[0],
+                'Vnesi maksimalno število točk: ' + vh[1],
+                izh
+            ])
+                
+            vh = ['0', '50']
+            izh = 'Nezadostno (1)'
+            with Check.input(vh):
+                Check.output(Check.current_part['solution'], [
+                'Vnesi doseženo število točk: ' + vh[0],
+                'Vnesi maksimalno število točk: ' + vh[1],
+                izh
+            ])
+                
+            vh = ['50', '30']
+            izh = 'Napačen vnos!'
+            with Check.input(vh):
+                Check.output(Check.current_part['solution'], [
+                'Vnesi doseženo število točk: ' + vh[0],
+                'Vnesi maksimalno število točk: ' + vh[1],
+                izh
+            ])
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])

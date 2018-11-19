@@ -1,95 +1,100 @@
 # =============================================================================
-# Fibonaccijevo zaporedje ostankov
-#
-# Posplošeno Fibonaccijevo zaporedje ostankov je definirano podobno kot
-# običajno 
-# [Fibonaccijevo zaporedje](https://sl.wikipedia.org/wiki/Fibonaccijevo_%C5%A1tevilo), 
-# le da si prva dva člena lahko izberemo
-# sami, vse vsote pa računamo po modulu $n$. Vsaj eden od prvih dveh
-# členov mora biti različen od $0$ (po modulu $n$), sicer dobimo zaporedje
-# samih ničel. Vsako takšno zaporedje je periodično (ko se enkrat ponovita
-# prva dva člena, se tudi vsi nadaljnji členi začnejo ponavljati).
-# 
-# V nalogi lahko predpostavite, da velja $n > 1$.
-# Pripravljeno imamo funkcijo `naslednjiClen(a, b, n)`, ki pri podanih
-# zaporednih členih `a` in `b` izračuna naslednji člen. 
-# 
-#     def naslednjiClen(a, b, n):
-#         '''Vrne naslednji člen Fibbonacijevega zaporedja ostankov'''
-#         return (a + b) % n
-# =====================================================================@018941=
+# Vrstni red II
+# =====================================================================@018448=
 # 1. podnaloga
-# Če računamo nekaj zaporednih členov za začetna člena 0, 1 in za modul 2, dobimo
-# zaporedje 0, 1, 1, 0, 1, 1, 0, 1, 1 ...
-# Zaporedje ima torej periodo 3.
-# Pri  podatkih 0, 1, in 5 pa je zaporedje 0, 1, 1, 2, 3, 0, 3, 3, 1, 4, 0, 4, 4, 3, 2, 0, 2, 2, 4, 1, 0, 1, 1, 2, 3, ..
-# perioda torej kar 20!
+# Spodnji program naj bi za dani niz ugotovil ali predstavlja celo število.
 # 
-# Funkcija `perioda(a, b, n)` kot argumente dobi prva dva
-# člena zaporedja in število `n`, vrnila pa naj bi dolžino periode tega zaporedja.
-# Predpostavite, da velja $a < n$ in $b < n$.
+# Žal je (bil) program "čuden", uporablja(l) določene nam še neznane ukaze, zato sem
+# nalogo naknadno spremenil.
 # 
-#      def perioda(a, b, n):
-#          '''Dolžina periode FZO z začetnima členoma a in b in operacijo po modulu n'''
-#          x = a
-#          y = naslednjiClen(a, b, n)
-#          dopPer = 1
-#          while x != a and y != b:
-#              x, y = y, naslednjiClen(x, y, n)
-#              dolPer = 1
-#          return dolPer
+# Da pa ne bo tehničnih težav ... Vse, kar ste že naredili (in je sintaktično prav), bo dobilo zelen krogec.
+# torej tudi, če bo vaš "program"
 # 
-# Vemo, da so v zgornji kodi štiri napakice in sicer v vrsticah
-# (vrstice z dok. komentarjem ne štejemo) 2, 4, 6 in 8. Popravi jih!
+#         print(42)
+# 
+# Se bomo pa s to podnalogo srečali čez nekaj tednov ;-)
 # =============================================================================
 
-# =====================================================================@018942=
+# =====================================================================@018449=
 # 2. podnaloga
-# Oglej si funkcijo
+# Spodnji program naj bi za podana dan in mesec povedal kateremu letnemu času
+# dani datum pripada. Predpostavimo, da programu vedno podamo veljaven datum.
+# V programu so izginili zamiki in premešal se je vrstni red vrstic.
+# Popravi zamike in vrstni red vrstic, da bo program smiselno deloval.
 # 
-#      def fun1(a, b, n, m):
-#          '''Vrnem nekaj v povezavi s FZO z začetnima členoma a in b in operacijo po modulu n'''
-#          x = min(a, b)
-#          q = a
-#          w = b
-#          st = 2
-#          while st <= m:
-#              y = naslednjiČlen(q, w, n)
-#              if y < x:
-#                  x = y
-#              q = w
-#              w = y
-#              st += 1
-#          return x
-# 
-# S pomočjo te funkcije sestavi funkcijo `minMax(a, b, n, m)`, ki vrne 
-# najmanjši in največji člen med prvimi `m` členi FZO z začetnima členoma `a` 
-# in `b`, če se operacije izvajajo po modulu `n`.
-# 
-#          >>>minMax(0, 1, 5, 8)
-#          (0, 3)
-#          >>>minMax(1, 1, 5, 4)
-#          (1, 3)
-# 
-# Namig: Poskušaj razumeti, kaj dana funkcija počne.
-# Spremenljivkam daj smiselna imena. Npr. za `y` je očitno, da gre za člen v FZ.
-# Tudi `q` in `w` imate nekaj zveze s tem.  Čemu pa služi `x`?
+#      if (mesec == 'marec') and (dan > 20):
+#      else:
+#      letni_cas = 'zima'
+#      if (mesec == 'september') and (dan > 22):
+#      elif mesec in ('april', 'maj', 'junij'):
+#      letni_cas = 'poletje'
+#      dan = int(input("Sedaj vnesi dan v mesecu: "))
+#      else:
+#      letni_cas = 'jesen'
+#      else:
+#      letni_cas = 'pomlad'
+#      elif mesec in ('julij', 'avgust', 'september'):
+#      letni_cas = 'zima'
+#      else:
+#      letni_cas = 'poletje'
+#      else:
+#      if (mesec == 'december') and (dan > 20):
+#      if mesec in ('januar', 'februar', 'marec'):
+#      if (mesec == 'junij') and (dan > 20):
+#      print("Letni čas je", letni_cas)
+#      letni_cas = 'pomlad'
+#      letni_cas = 'jesen'
+#      mesec = input("Najprej vnesi mesec (npr. januar, februar, ...): ")
 # =============================================================================
-
-# =====================================================================@018943=
+if (mesec == 'marec') and (dan > 20):
+else:
+letni_cas = 'zima'
+if (mesec == 'september') and (dan > 22):
+elif mesec in ('april', 'maj', 'junij'):
+letni_cas = 'poletje'
+dan = int(input("Sedaj vnesi dan v mesecu: "))
+else:
+letni_cas = 'jesen'
+else:
+letni_cas = 'pomlad'
+elif mesec in ('julij', 'avgust', 'september'):
+letni_cas = 'zima'
+else:
+letni_cas = 'poletje'
+else:
+if (mesec == 'december') and (dan > 20):
+if mesec in ('januar', 'februar', 'marec'):
+if (mesec == 'junij') and (dan > 20):
+print("Letni čas je", letni_cas)
+letni_cas = 'pomlad'
+letni_cas = 'jesen'
+mesec = input("Najprej vnesi mesec (npr. januar, februar, ...): ")
+# =====================================================================@018450=
 # 3. podnaloga
-# Sestavite funkcijo `najkrajsaPerioda(a, b, m, n)`, ki vrne najmanjši
-# tak $i \in \left[m, n\right]$, pri katerem trojka `(a, b, i)`
-# minimizira dolžino periode iz prve podnaloge. Predpostavite lahko,
-# da sta argumenta `m` in `n` naravni števili in velja $m \leq n$.
-# Primer:
+# Spodnji program naj bi za dane stranice trikotnika ugotovil ali
+# obstaja trikotnik z danimi stranicami ter ali gre za
+# enakostranični, enakokraki ali raznostranični trikotnik.
+# V programu so izginili zamiki in premešal se je vrstni red vrstic.
+# Poleg tega se je med vrstice prikradlo še nakaj vrstic, ki niso del programa.
+# Popravi zamike in vrstni red vrstic, da bo program smiselno deloval.
 # 
-#     >>> najkrajsa_perioda(2, 2, 6, 19)
-#     8
-# 
-# Namig: Iz 1. podnaloge znamo izračunati dolžino periode.
-# Ta podnaloga pa bi rada samo najkrajšo periodo med vsemi FZO
-# z začetnima členoma `a` in `b`, če za modul jemljemo `n, n+1, n+2, .., m`
+#      x = int(input("x: "))
+#      z = int(input("z: "))
+#      if x == y == z:
+#      elif x + y > z and x + z > y and y + z > x:
+#      print("Vnesena števila ne predstavljajo veljavnih dolžin stranic trikotnika.")   
+#      print("Raznostranični trikotnik")
+#      print("Enakostranični trikotnik")
+#      y = int(input("y: "))
+#      elif x != y != z and x != z:
+#      print("Pravokotni trikotnik")
+#      if x + y > z and x + z > y and y + z > x and abs(x - y) < z and abs(y - z) < x and abs(x - z) < y:    
+#      else:
+#      input("Vnesi dolžine stranic trikotnika: ")
+#      print("Enakokrak trikotnik")
+#      else:
+#      int(input("z: "))
+#      print("Vnesi dolžine stranic trikotnika: ")
 # =============================================================================
 
 
@@ -617,40 +622,53 @@ def _validate_current_file():
     Check.initialize(file_parts)
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0MX0:1gNcDR:nuIY3a8bh3Q37T5eO1IAomMg_rw'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ0OH0:1gNw3k:SOYXB1db_wSlg61jbkIt7xQsQvc'
         try:
-            Check.equal("""perioda(1, 2, 3)""", 8) and \
-                Check.equal("""perioda(0, 1, 3)""", 8) and \
-                Check.equal("""perioda(0, 1, 2)""", 3) and \
-                Check.equal("""perioda(5, 5, 10)""", 3) and \
-                Check.equal("""perioda(1, 2, 9)""", 24) and \
-                Check.equal("""perioda(2, 2, 7)""", 16)
+            pass
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0Mn0:1gNcDR:MH31OLVSVsoJxRx0Q3uMX5eunbI'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ0OX0:1gNw3k:t72I9gihRsHWsIYSyOo_yzsgBws'
         try:
-            Check.equal("""minMax(3, 4, 6, 2)""", (3, 4)) and \
-                Check.equal("""minMax(3, 4, 6, 1)""", (3, 3)) and \
-                Check.equal("""minMax(3, 4, 6, 3)""", (1, 4)) and \
-                Check.equal("""minMax(3, 4, 6, 6)""", (0, 5)) and \
-                Check.equal("""minMax(2, 2, 7, 19)""", (0, 6)) and \
-                Check.equal("""minMax(3, 3, 8, 19)""", (0, 7)) and \
-                Check.equal("""minMax(1, 1, 23, 19)""", (1, 21)) and \
-                Check.equal("""minMax(4, 2, 11, 19)""", (0, 9)) and \
-                Check.equal("""minMax(2, 3, 7, 19)""", (0, 6))
+            vhod = [['januar', '20'], ['februar', '18'], ['marec', '21'], ['april', '1'], ['junij', '22'], ['september', '21'], ['oktober', '1'], ['december', '25']]
+            izhod = ["zima",
+                     "zima",
+                     "pomlad",
+                     "pomlad",
+                     "poletje",
+                     "poletje",
+                     "jesen",
+                     "zima"]
+            
+            for i in range(len(vhod)):
+                with Check.input(vhod[i]):
+                    if not Check.output(Check.current_part['solution'], [
+                        "Najprej vnesi mesec (npr. januar, februar, ...): " + vhod[i][0],
+                        "Sedaj vnesi dan v mesecu: " + vhod[i][1],
+                        "Letni čas je " + izhod[i]]):
+                        break
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0M30:1gNcDR:3nApgy5i8TcnXuYgnDEYn7gFcwE'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ1MH0:1gNw3k:uY8RYioCvsT7TPE6fJK1iVDUujQ'
         try:
-            Check.equal("""najkrajsaPerioda(1, 1, 6, 19)""", 11)
-            Check.equal("""najkrajsaPerioda(2, 2, 6, 19)""", 8)
-            Check.equal("""najkrajsaPerioda(3, 3, 6, 19)""", 6)
+            vhod = [['4', '4', '4'], ['3', '6', '8'], ['5', '5', '7'], ['5', '7', '5'], ['7', '5', '5'], ['1', '2', '20']]
+            izhod = ["Enakostranični trikotnik", "Raznostranični trikotnik", "Enakokrak trikotnik", "Enakokrak trikotnik",
+                     "Enakokrak trikotnik", "Vnesena števila ne predstavljajo veljavnih dolžin stranic trikotnika."]
+            
+            for i in range(len(vhod)):
+                with Check.input(vhod[i]):
+                    if not Check.output(Check.current_part['solution'], [
+                        "Vnesi dolžine stranic trikotnika: ",
+                        "x: " + vhod[i][0],
+                        "y: " + vhod[i][1],
+                        "z: " + vhod[i][2],
+                        izhod[i]]):
+                        break
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])

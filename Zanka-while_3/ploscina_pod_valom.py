@@ -23,10 +23,13 @@ def ploscinaVal(n):
     fun izracuna ploščino vala funkcije sin(x).
     n je št naključnih točk.
     """
-    s = 0
-    for _ in range(n):
-        x = random.rand
-    
+    y = 0
+for(i in number_of_iterations, i++)
+    k1=f(y);
+    k2=f(y+n/2*k1)
+    k3=f(y+n/2*k2)
+    k4=f(y+n*k3)
+    y+= n/6*(k1+2*k2+2*k3+k4)
 
 
 

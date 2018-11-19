@@ -1,23 +1,100 @@
 # =============================================================================
-# Mečemo kocko
-# =====================================================================@018934=
+# Zamiki
+# =====================================================================@018445=
 # 1. podnaloga
-# Sestavi funkcijo `dvakratZapored()`, ki vrne število, ki pove, kolikokrat smo
-# vrgli kocko, da smo dvakrat zapored vrgli *6*. Če npr. mečemo
+# Naslednja koda vsebuje, kar se zamikov tiče, cel kup napak.
 # 
-#         2, 6, 3, 3, 6, 4, 5, 6, 6
+#         x = int(input('x: '))
+#         y = int(input('y: '))
+#         if x == 3 and y == 4:
+#             print("x je 3")
+#                print("y je morda 4, vem pa ne")
+#         if x > 2 and y < 5:
+#         print("x > 2")
+#         print("y < 5")
+#         if x < 4 and y > 3:
+#             print("x < 4")
+#                 print("y > 3")
 # 
-# smo torej kocko morali vreči 9x, da smo dvakrat *zapored* vrgli *6*.
+# Skopiraj jo in jo popravi! Stavkov samih ne spreminjaj, le njihove zamike!
+# Popravki morajo biti taki, da so izpisi smiselni!
 # =============================================================================
 
-# =====================================================================@018935=
+x = int(input('x: '))
+y = int(input('y: '))
+if x == 3 and y == 4:
+    print("x je 3")
+print("y je morda 4, vem pa ne")
+if x > 2 and y < 5:
+    print("x > 2")
+    print("y < 5")
+if x < 4 and y > 3:
+    print("x < 4")
+    print("y > 3")
+# =====================================================================@018446=
 # 2. podnaloga
-# Sestavi funkcijo `verjetnostDveh6(n)`, ki na podlagi `n` klicev
-# funkcije `dvakratZapored()` ugotovi,
-# kolikokrat smo v povprečju v `n` poskusih morali vreči kocko, da smo
-# dvakrat zapored vrgli 6.
+# Naslednja koda predstavlja program, ki pretvarja temperaturo iz stopinj
+# Celzija v stopinje Fahrenheit in obratno. Ustrezno zamakni vrstice,
+# da bo koda pravilno delovala.
+# 
+#          enota = input("V kateri enoti boš podal temperaturo? Vnesi 'C' ali 'F': ")
+#          stopinje = int(input("Število stopinj: "))
+#          if enota != "C" and enota != "F":
+#          print("Vnesi ustrezno enoto.")
+#          else:
+#          if enota == "C":
+#          odg = int(round((9 * stopinje) / 5 + 32))
+#          nova_enota = "Fahrenheit"
+#          elif enota == "F":
+#          odg = int(round((stopinje - 32) * 5 / 9))
+#          nova_enota = "Celzija"
+#          print("Temperatura v stopinjah", nova_enota, "je", odg, "stopinj.")
+# 
+# Skopiraj kodo in jo popravi! Stavkov samih ne spreminjaj, le njihove zamike!
 # =============================================================================
 
+
+enota = input("V kateri enoti boš podal temperaturo? Vnesi 'C' ali 'F': ")
+stopinje = int(input("Število stopinj: "))
+if enota != "C" and enota != "F":
+    print("Vnesi ustrezno enoto.")
+else:
+    if enota == "C":
+        odg = int(round((9 * stopinje) / 5 + 32))
+        nova_enota = "Fahrenheit"
+    elif enota == "F":
+        odg = int(round((stopinje - 32) * 5 / 9))
+        nova_enota = "Celzija"
+    print("Temperatura v stopinjah", nova_enota, "je", odg, "stopinj.")
+# =====================================================================@018447=
+# 3. podnaloga
+# Naslednja koda predstavlja funkcijo, ki za dano celo število `n` vrne
+# niz `fizz`, če je `n` deljiv s 3, niz `buzz`, če je `n` deljiv s 5 ter
+# niz `fizzbuzz`, če je `n` deljiv s 3 in s 5. Popravi zamike vrstic,
+# da bo koda pravilno delovala.
+# 
+#             def fizzbuzz(n):
+#          if n % 3 == 0:
+#                 if n % 5 == 0:
+#              return "fizzbuzz"
+#                     else:
+#                     return "fizz"
+#          elif n % 5 == 0:
+#                     return "buzz"
+#          return None
+# 
+# Skopiraj kodo in jo popravi! Stavkov samih ne spreminjaj, le njihove zamike!
+# =============================================================================
+
+def fizzbuzz(n):
+    if n % 3 == 0:
+        if n % 5 == 0:
+            return "fizzbuzz"
+        else:
+            return "fizz"
+    elif n % 5 == 0:
+        return "buzz"
+    return None
 
 
 
@@ -543,33 +620,55 @@ def _validate_current_file():
     Check.initialize(file_parts)
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODkzNH0:1gNcDR:Kmjl4dJRPwFSccN6LN59jfarpgg'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ0NX0:1gNw3k:OKTkshXt5KrOv7HRt4A9zH4Ot8s'
         try:
-            import random
-            random.seed(1)
-            Check.equal("dvakratZapored()", 58)
-            random.seed(42)
-            Check.equal("dvakratZapored()", 12)
-            random.seed(2)
-            Check.equal("dvakratZapored()", 7)
+            vhod = [['3', '4'], ['4', '3'],['14', '13'], ['3', '3'], ['100', '2'], ['1', '1'], ['5', '5']]
+            izhod = [['x: 3', 'y: 4', 'x je 3', 'y je morda 4, vem pa ne', 'x > 2', 'y < 5', 'x < 4', 'y > 3'],
+                     ['x: 4', 'y: 3', 'y je morda 4, vem pa ne', 'x > 2', 'y < 5'],
+                     ['x: 14', 'y: 13', 'y je morda 4, vem pa ne'],
+                     ['x: 3', 'y: 3', 'y je morda 4, vem pa ne', 'x > 2', 'y < 5'],
+                     ['x: 100', 'y: 2', 'y je morda 4, vem pa ne', 'x > 2', 'y < 5'],
+                     ['x: 1', 'y: 1', 'y je morda 4, vem pa ne'],
+                     ['x: 5', 'y: 5', 'y je morda 4, vem pa ne']]
+            
+            for i in range(len(vhod)):
+                with Check.input(vhod[i]):
+                    if not Check.output(Check.current_part['solution'], izhod[i]):
+                        break
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODkzNX0:1gNcDR:Pg6VH-7RmoE0C_eC9RKzmSrCYJ4'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ0Nn0:1gNw3k:-HJzOq2JJCnA66oX_MOFXVDgjpM'
         try:
-            import random
-            random.seed(1)
-            resitev = 44.758620689655174
-            Check.equal("verjetnostDveh6(58)", resitev)
-            random.seed(42)
-            resitev = 37.38095238095238
-            Check.equal("verjetnostDveh6(42)", resitev)
-            resitev = 40.737
-            Check.equal("verjetnostDveh6(1000)", resitev)
-            # resitev = 42.1341
-            # Check.equal("verjetnostDveh6(10000)", resitev)
+            vhod = [['C', '20'], ['C', '-3'],['C', '0'], ['F', '32'], ['F', '212'], ['F', '100'], ['A', '5']]
+            izhod = ['Temperatura v stopinjah Fahrenheit je 68 stopinj.',
+                     'Temperatura v stopinjah Fahrenheit je 27 stopinj.',
+                     'Temperatura v stopinjah Fahrenheit je 32 stopinj.',
+                     'Temperatura v stopinjah Celzija je 0 stopinj.',
+                     'Temperatura v stopinjah Celzija je 100 stopinj.',
+                     'Temperatura v stopinjah Celzija je 38 stopinj.',
+                     'Vnesi ustrezno enoto.']
+            
+            for i in range(len(vhod)):
+                with Check.input(vhod[i]):
+                    if not Check.output(Check.current_part['solution'], [
+                        "V kateri enoti boš podal temperaturo? Vnesi 'C' ali 'F': " + vhod[i][0],
+                        "Število stopinj: " + vhod[i][1],
+                        izhod[i]]):
+                        break
+        except:
+            Check.error("Testi sprožijo izjemo\n  {0}",
+                        "\n  ".join(traceback.format_exc().split("\n"))[:-2])
+
+    if Check.part():
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ0N30:1gNw3k:UsaZzk46MFYdQKA0pnHPV9dameI'
+        try:
+            Check.equal("fizzbuzz(18)", 'fizz')
+            Check.equal("fizzbuzz(20)", 'buzz')
+            Check.equal("fizzbuzz(30)", 'fizzbuzz')
+            Check.equal("fizzbuzz(11)", None)
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])

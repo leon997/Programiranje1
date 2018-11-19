@@ -15,9 +15,26 @@
 # 
 # Seveda `math.pi` nima v vaši funkciji kaj početi!
 # =============================================================================
+import random
 
-
-
+def priblizekPi(stTock):
+    """
+    fun vrne izračunan približek št Pi.
+    $štTock je število naključnih točk
+    """
+    v_krogu = 0
+    poskusi = 1
+    while poskusi <=  stTock: # naredimo toliko "poskusov"
+        # naključna točka v kvadratu
+        a = random.random()
+        b = random.random()
+        razdalja = a*a + b*b
+        if razdalja <= 1 :
+            v_krogu += 1
+        poskusi = poskusi + 1
+    # izračunamo razmerje
+    razmerje = v_krogu / stTock
+    return razmerje * 4
 
 
 

@@ -1,63 +1,35 @@
 # =============================================================================
-# Ugibaj točke
-# =====================================================================@018944=
+# Datumi
+# =====================================================================@018451=
 # 1. podnaloga
-# Miha se rad igra igro ugibanja števil. V ta namen bi rad napisal računalniški
-# program, ki bi mu izžrebal število, on pa bi ga ugibal. V pomoč mu sestavite
-# funkcijo `relacija(racunalnik, miha)`, ki sprejme dve celi števili. Funkcija
-# naj vrne niz `'premalo'`, če je število `miha` manjše od števila 
-# `racunalnik`; niz `'preveč'`, če je število `miha` večje od števila 
-# `racunalnik` in niz `'Bravo!'`, če sta števili enaki.
-# Primer:
-# 
-#     >>> relacija(45, 20)
-#     'premalo'
+# Sestavite funkcijo `je_prestopno(leto)`, ki vrne `True`, kadar je `leto`
+# prestopno, in `False`, kadar ni.
 # =============================================================================
-
-# =====================================================================@018945=
+def je_prestopno(leto):
+    if (leto % 4) == 0:
+       if (leto % 100) == 0:
+           if (leto % 400) == 0:
+               return True
+           else:
+               return False
+       else:
+           return True
+    else:
+       return False
+# =====================================================================@018452=
 # 2. podnaloga
-# Mihu je ugibanje v eni dimenziji počasi postalo predolgočasno. Zato je začel
-# ugibati števila, ki ležijo na celoštevilski mreži v ravnini. V ta namen
-# sestavite funkcijo `ugibaj(racunalnikX, racunalnikY, mihaX, mihaY)`, 
-# ki sprejme koordinate dveh celoštevilskih točk v ravnini.
-# 
-# Funkcija naj vrne niz `'Od prave točke si oddaljen vsaj {0}.'`, če Miha 
-# točke ni uganil in niz `'Bravo!'`, če je Miha točko uganil. Pri tem naj bo 
-# namesto `{0}` izpisana 
-# [Evklidska razdalja](https://en.wikipedia.org/wiki/Euclidean_distance) 
-# med točkama `miha` in `racunalnik`, zaokrožena navzdol na najbližje celo 
-# število.
-# 
-# Primer:
-# 
-#     >>> ugibaj(15, 15, 16, 16)
-#     'Od prave točke si oddaljen vsaj 1.'
+# Sestavite funkcijo `stevilo_dni(mesec, leto)`, ki vrne število dni danega
+# meseca (podanega s številom med 1 in 12) v danem letu.
 # =============================================================================
-
-# =====================================================================@018946=
+#def stevilo_dni(mesec, leto):
+# =====================================================================@018453=
 # 3. podnaloga
-# Miha se je tudi igre v dveh dimenzijah hitro naveličal, saj je trajala
-# predolgo. Zato si je poleg oddaljenosti od izžrebane točke zaželel vedeti še,
-# kje leži njegova točka glede na izžrebano število: v prvem, drugem,
-# tretjem ali četrtem kvadrantu.
-# 
-# Pri tem k prvemu kvadrantu štejemo tudi pozitivno $x$-os, k drugemu
-# pozitivno $y$-os, k tretjemu negativno $x$-os in k četrtemu negativno $y$-os.
-# 
-# Sestavite funkcijo `ugibaj1(racunalnikX, racunalnikY, mihaX, mihaY)`, ki naj 
-# vrne niz `'Bravo!'`, če je Miha točko uganil oz. niz `'Tvoja točka je v 
-# {0}. kvadrantu.'` (kjer je namesto `{0}` izpisana številska oznaka 
-# kvadranta).
-# 
-# Primer:
-# 
-#     >>> ugibaj1(15, 15, 16, 16)
-#     'Tvoja točka je v 1. kvadrantu.'
-# 
-#     >>> ugibaj1(15, 15, 14, 14)
-#     'Tvoja točka je v 3. kvadrantu.'
+# Sestavite funkcijo `je_veljaven_datum(dan, mesec, leto)`, ki vrne `True`
+# natanko tedaj, kadar `dan`, `mesec` in `leto` določajo veljaven datum
+# (torej `mesec` mora biti število med 1 in 12, `dan` pa mora ustrezati dnevu
+# v tem mesecu).
 # =============================================================================
-
+#def je_veljaven_datum(dan, mesec, leto):
 
 
 
@@ -583,52 +555,45 @@ def _validate_current_file():
     Check.initialize(file_parts)
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0NH0:1gNcDR:0C63W24air7dPTUh0hWmB_NTjPk'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ1MX0:1gNw3k:rIYZjXpqatTJtZvpdEpOqt-whRw'
         try:
-            Check.equal("relacija(45, 20)", 'premalo') and \
-                Check.equal("relacija(40, 45)", 'preveč') and \
-                Check.equal("relacija(20, 20)", 'Bravo!')
-            Check.secret(relacija(45, 20))
-            Check.secret(relacija(15, 40))
-            Check.secret(relacija(30, 30))
+            Check.equal('je_prestopno(2016)', True)
+            Check.equal('je_prestopno(2015)', False)
+            Check.equal('je_prestopno(2000)', True)
+            Check.equal('je_prestopno(1900)', False)
+            for leto in range(1950, 2050):
+                Check.secret(je_prestopno(leto), leto)
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0NX0:1gNcDR:SAa5CgNNiQE6RpAZdEPlukKhu84'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ1Mn0:1gNw3k:pGKki5CGSDwnDtTsrocJz-Vxbr8'
         try:
-            Check.equal("ugibaj(15, 15, 16, 16)", 'Od prave točke si oddaljen vsaj 1.') and \
-                Check.equal("ugibaj(-17, 45, -17, 45)", 'Bravo!')and \
-                Check.equal("ugibaj(-17, 0, 17, 0)", 'Od prave točke si oddaljen vsaj 34.')and \
-                Check.equal("ugibaj(17, 3, 17, 0)", 'Od prave točke si oddaljen vsaj 3.')and \
-                Check.equal("ugibaj(-17, 0, -17, 5)", 'Od prave točke si oddaljen vsaj 5.')and \
-                Check.equal("ugibaj(0, 0, 10, 10)", 'Od prave točke si oddaljen vsaj 14.')
+            Check.equal('stevilo_dni(2, 2016)', 29)
+            Check.equal('stevilo_dni(3, 2011)', 31)
+            Check.equal('stevilo_dni(2, 2011)', 28)
+            Check.equal('stevilo_dni(4, 2011)', 30)
+            for leto in range(1999, 2017):
+                for mesec in range(1, 13):
+                    Check.secret(stevilo_dni(mesec, leto), (mesec, leto))
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])
 
     if Check.part():
-        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODk0Nn0:1gNcDR:3HGXRmGUEIIoNhKRIzYCEvZ-Ioc'
+        Check.current_part['token'] = 'eyJ1c2VyIjozMzA3LCJwYXJ0IjoxODQ1M30:1gNw3k:WvwKfnZ35_BFoBk0UoKZZL9siGE'
         try:
-            Check.secret(ugibaj1(15, 15, 14, 14))
-            Check.equal("ugibaj1(15, 15, 16, 16)", "Tvoja točka je v 1. kvadrantu.") and \
-                Check.equal("ugibaj1(15, 15, 15, 16)", "Tvoja točka je v 2. kvadrantu.") and \
-                Check.equal("ugibaj1(15, 15, 14, 16)", "Tvoja točka je v 2. kvadrantu.") and \
-                Check.equal("ugibaj1(-15, 15, -14, -16)", "Tvoja točka je v 4. kvadrantu.") and \
-                Check.equal("ugibaj1(-15, -15, -14, -16)", "Tvoja točka je v 4. kvadrantu.") and \
-                Check.equal("ugibaj1(-15, 15, 14, -16)", "Tvoja točka je v 4. kvadrantu.") and \
-                Check.equal("ugibaj1(-15, -15, -14, 16)", "Tvoja točka je v 1. kvadrantu.") and \
-                Check.equal("ugibaj1(15, -15, 14, -16)", "Tvoja točka je v 3. kvadrantu.")
-            
-            import random
-            seed = 1
-            random.seed(seed)
-            secrets = 100
-            
-            for _ in range(secrets):
-                data = [random.randint(-100, 100) for _ in range(4)]
-                Check.secret(ugibaj1(data[0], data[1], data[2], data[3]))
+            Check.equal('je_veljaven_datum(29, 2, 2016)', True)
+            Check.equal('je_veljaven_datum(29, 3, 2011)', True)
+            Check.equal('je_veljaven_datum(29, 2, 2011)', False)
+            Check.equal('je_veljaven_datum(35, 4, 2011)', False)
+            Check.equal('je_veljaven_datum(2, 13, 2011)', False)
+            Check.equal('je_veljaven_datum(12, 3, 2016)', True)
+            for leto in range(1999, 2017):
+                for mesec in range(1, 15):
+                    for dan in range(28, 33):
+                        Check.secret(je_veljaven_datum(dan, mesec, leto), (dan, mesec, leto))
         except:
             Check.error("Testi sprožijo izjemo\n  {0}",
                         "\n  ".join(traceback.format_exc().split("\n"))[:-2])

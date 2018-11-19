@@ -38,7 +38,15 @@ def koliko_copicev(dol_rocaj, dol_konica, dol_palic):
     s trenutno zalogo proizvede.
     
     """
-
+    skupaj = sum(dol_palic)
+    potrebnoZa1 = dol_rocaj + dol_konica
+    čopiči = 0
+    porabljeno = 0
+    
+    while skupaj > porabljeno and not skupaj-porabljeno < potrebnoZa1 :
+        porabljeno = porabljeno + dol_rocaj + dol_konica
+        čopiči += 1
+    return čopiči
 
 
 

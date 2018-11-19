@@ -42,17 +42,23 @@
 # Vemo, da so v zgornji kodi štiri napakice in sicer v vrsticah
 # (vrstice z dok. komentarjem ne štejemo) 2, 4, 6 in 8. Popravi jih!
 # =============================================================================
+def naslednjiClen(a, b, n):
+    '''Vrne naslednji člen Fibbonacijevega zaporedja ostankov'''
+    return (a + b) % n
+
 def perioda(a, b, n):
     '''
-    Dolžina periode FZO z začetnima členoma a in b in operacijo po modulu n
+    dobi prva člena zaporedja in "n"
+    vrne dolžino periode tega zaporedja
     '''
-    x = a
+    x = b
     y = naslednjiClen(a, b, n)
-    dopPer = 1
-    while x != a and y != b:
+    d_periode = 1
+    while not(x == a and y == b): 
         x, y = y, naslednjiClen(x, y, n)
-        dolPer = 1
-    return dolPer
+        d_periode += 1
+    return d_periode
+
 # =====================================================================@018942=
 # 2. podnaloga
 # Oglej si funkcijo
@@ -101,7 +107,21 @@ def perioda(a, b, n):
 # Ta podnaloga pa bi rada samo najkrajšo periodo med vsemi FZO
 # z začetnima členoma `a` in `b`, če za modul jemljemo `n, n+1, n+2, .., m`
 # =============================================================================
-
+def najkrajsaPerioda(a,b,m,n):
+    """
+    fun vrne modil z najmanjšo periodo
+    """
+    min = m
+    dmin = perioda(a,b,m)
+    mod = m+1
+    
+    while mod <= n:
+        d_periode = perioda(a,b,mod)
+        if d_periode < dmin:
+            min = mod
+            dmin = d_periode
+        mod += 1
+    return min
 
 
 
