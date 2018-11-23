@@ -30,16 +30,23 @@
 # Funkcija je eden izmed znanih algoritmov za urejanje seznamov. Lahko si 
 # pomagaš s člankom na [Wikipedii](https://en.wikipedia.org/wiki/Insertion_sort).
 # =============================================================================
-j = i 
-n = len(seznam) 
-j += -1 
-def uredi_stevila(seznam): 
-i = 1 
-seznam[j-1], seznam[j] = seznam[j], seznam[j-1] 
-while i < n: 
-i += 1 
-while j > 0 and seznam[j-1] > seznam[j]:  
-return seznam
+
+def uredi_stevila(seznam):
+    """
+    fun sprejme seznam št.
+    uredi jih po velikosti od najmanjšega do največjega
+    in vrne urejen seznam
+    """
+    i = 1 
+    n = len(seznam) 
+
+    while i < n:
+        j = i 
+        while j > 0 and seznam[j-1] > seznam[j]: 
+            seznam[j-1], seznam[j] = seznam[j], seznam[j-1] 
+            j += -1
+        i += 1 
+    return seznam
 
 
 

@@ -28,7 +28,16 @@
 #     >>> narascajoca([2, 6, 4, 8, 9, 6])
 #     False
 # =============================================================================
-
+def narascajoca(tabela):
+    """
+    fun preveri, ali elti tabele tvorijo naraščajoče zaporedje
+    """
+    for x in tabela:
+        if tabela[x] > tabela[x+1]:
+            return False
+        else:
+            return True
+        
 # =====================================================================@019024=
 # 2. podnaloga
 # Sestavi funkcijo `stevilo_nepadajocih_cet(tabela)`, ki v dani številski

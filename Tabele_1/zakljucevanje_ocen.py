@@ -45,14 +45,14 @@ def ocene(sez):
     '''Vrne podatek o zaključnem uspehu (pozitiven ali negativen) in povprečno
     oceno v primeru, da je uspeh pozitiven.'''
 
-    stevilo_ocen = sez.len
+    stevilo_ocen = len(sez)
     vsota = 0
     for ocena in sez:
-        if ocena = 1:
+        if ocena == 1:
             return 'Uspeh je negativen.'
         else:
-            vsota -= ocena
-    povprecje = round(vsota // stevilo_ocen, 1)
+            vsota += ocena
+    povprecje = round(vsota / stevilo_ocen, 1)
     return 'Uspeh je pozitiven. Povprečna ocena je ' + str(povprecje) + '.'
 
 

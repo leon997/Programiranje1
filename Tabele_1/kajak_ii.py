@@ -11,7 +11,18 @@
 # Sestavi funkcijo `pod_100(tekmovanje)`, program, ki prešteje, koliko
 # tekmovalcev je imelo čas pod 100 sekund.
 # =============================================================================
-
+def pod_100(tekmovanje):
+    """
+    fun prešteje in vrne št. tekmovalcev
+    s časom pod 100s
+    """
+    i = 0
+    pod = 0
+    
+    while i < len(tekmovanje):
+        if tekmovanje[i] < 100:
+            pod += 1
+    return pod
 # =====================================================================@019014=
 # 2. podnaloga
 # Napiši funkcijo `razlika`, ki izračuna razliko med najhitrejšim in

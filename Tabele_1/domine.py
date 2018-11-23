@@ -10,6 +10,13 @@
 # Za prvo tabelo mora vrniti True in za drugo False.
 # =============================================================================
 
+def pravZlozeno(vrsta_domin):
+    """
+    fun prejme tabelo in pove, če
+    so domine pravilno zložene.
+    fun mora za prvo tabelo vrniti True, in za drugo False
+    """
+    
 
 
 

@@ -18,13 +18,14 @@
 # števil v tabeli, le da spusti vsa števila, enaka 0. 
 # V tabeli je vsaj eno od 0 različno število!
 # =============================================================================
-def zmnozi(tab_stevil):
-    '''Vrne produkt vseh števil v tabeli'''
+def zmnozi_brez_0(tab):
+    '''Vrne produkt vseh števil v tabeli, ampak izpusti vse ničle'''
     produkt = 1
     ind = 0
-    while ind < len(tab_stevil):
-        stev = tab_stevil[ind]
-        produkt = produkt * stev
+    while ind < len(tab):
+        stev = tab[ind]
+        if stev != 0:
+            produkt = produkt * stev
         ind = ind + 1
     return produkt
 # =====================================================================@019007=
@@ -32,12 +33,14 @@ def zmnozi(tab_stevil):
 # Sedaj pa funkcijo `zmnozi(tab_stevil)` spremeni v funkcijo `zmnoziHitreje(tab_stevil)`,
 # ki bo takoj, ko naletimo na 0, prekinila računanje in vrnila 0!
 # =============================================================================
-def zmnozi(tab_stevil):
+def zmnoziHitreje(tab_stevil):
     '''Vrne produkt vseh števil v tabeli. V tabeli je vsaj eno število'''
     produkt = 1
     ind = 0
     while ind < len(tab_stevil):
         stev = tab_stevil[ind]
+        if stev == 0:
+            return 0
         produkt = produkt * stev
         ind = ind + 1
     return produkt
@@ -61,8 +64,24 @@ def zmnozi(tab_stevil):
 #        >>>preglej([2, 3, 2, -1, 0, 2, 0, -1, 4])
 #        (2, 2, 5)
 # =============================================================================
-
-
+def preglej(tab):
+    """
+    fun prešteje neg in poz št. ter ničle,
+    ter vrne posamezne seštevke
+    """
+    neg, nič, poz = 0, 0, 0
+    i = 0
+    
+    while i < len(tab):
+        if tab[i] > 0:
+            poz += 1
+        elif tab[i] < 0:
+            neg += 1
+        else:
+            nič += 1
+        i += 1
+    return neg, nič, poz
+    
 
 
 
