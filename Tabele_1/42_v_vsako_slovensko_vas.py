@@ -15,7 +15,17 @@
 # bo `imam42(xs)`enako `True`. Seveda mora funkcija delati za poljubno tabelo
 # in ne samo za tabelo iz primera.
 # =============================================================================
-
+def imam42(tab_stevil):
+    """
+    fun vrne true, če tabela vsebuje st 42
+    """
+    i = 0
+    
+    while i < len(tab_stevil):
+        if tab_stevil[i] == 42:
+            return True
+        i += 1
+    return False
 # =====================================================================@019017=
 # 2. podnaloga
 # [Zaphod](https://www.wikiwand.com/en/Zaphod_Beeblebrox) je ves vesel naše
@@ -33,7 +43,18 @@
 # bo `kje_je_42(xs)` vrnila `1`, `kje_je_42(x_ni)` vrnila `-1` in `kje_je_42(vec)` 
 # vrnila `2`.
 # =============================================================================
-
+def kje_je_42(tab_stevil):
+    """
+    fun vrne položaj st 42,
+    sicer vrne -1
+    """
+    i = 0
+    
+    while i < len(tab_stevil):
+        if tab_stevil[i] == 42:
+            return i
+        i += 1
+    return -1
 # =====================================================================@019018=
 # 3. podnaloga
 # [Arthur Dent](https://www.wikiwand.com/en/Arthur_Dent) se glasno pritožuje, 
@@ -50,7 +71,22 @@
 # bo `kje_zadnjic_42(xs)` vrnila `9`, `kje_zadnjic_42(x_ni)` vrnila `-1` in 
 # `kje_zadnjic_42(vec)` vrnila `3`.
 # =============================================================================
-
+def kje_zadnjic_42(tab):
+    """
+    fun vrne položaj zadnje 42ice c tab,
+    sicer vrne -1
+    """
+    i = 0
+    polozaj = 9999
+    
+    while i < len(tab):
+        if tab[i] == 42:
+            polozaj = i
+        i += 1
+    if polozaj != 9999:
+        return polozaj
+    else:
+        return -1
 # =====================================================================@019019=
 # 4. podnaloga
 # [Deep Thought](https://www.wikiwand.com/en/List_of_minor_The_Hitchhiker's_Guide_to_the_Galaxy_characters#/Deep_Thought) 
@@ -79,13 +115,13 @@
 # 
 # Pomagaj mu in jo ustrezno popravi!
 # =============================================================================
-def indeksi42(tab):
+"""def indeksi42(tab):
     '''Vrne urejeno tabelo indeksov, kjer se v tabeli pojavi število 42'''
     ind = 1
     while ind <= len(tab):
         if tab[ind] = 42: # hura, našli smo
             indeksi = indeksi + [[ind]]
-    return indeksi
+    return indeksi"""
 # =====================================================================@019020=
 # 5. podnaloga
 # [Vogonci](https://www.wikiwand.com/en/Vogon) že razvijajo naprednejšo

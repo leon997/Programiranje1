@@ -32,11 +32,15 @@ def narascajoca(tabela):
     """
     fun preveri, ali elti tabele tvorijo naraščajoče zaporedje
     """
-    for x in tabela:
-        if tabela[x] > tabela[x+1]:
+    i = 0
+    prej = 0
+    while i < len(tabela):
+        prej = tabela[0]
+        if prej > tabela[i]:
             return False
-        else:
-            return True
+        i += 1
+    return True
+    
         
 # =====================================================================@019024=
 # 2. podnaloga

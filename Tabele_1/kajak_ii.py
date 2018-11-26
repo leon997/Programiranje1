@@ -21,7 +21,8 @@ def pod_100(tekmovanje):
     
     while i < len(tekmovanje):
         if tekmovanje[i] < 100:
-            pod += 1
+            pod += 1    
+        i += 1
     return pod
 # =====================================================================@019014=
 # 2. podnaloga
@@ -29,8 +30,20 @@ def pod_100(tekmovanje):
 # najpočasnejšim tekmovalcem. Rezultat naj bo v spremenljivki `razlika`.
 # Nalogo reši le z enim sprehodom čez tabelo. Ne uporabi funkcij min in max!
 # =============================================================================
-
-
+def razlika(tekmovanje):
+    """
+    fun vrne razliko med najhitrejsim in
+    najpocasnejsim tekmovalcem
+    """
+    i, najhitrejsi, najpocasnejsi = 0, 0, 9999999
+    
+    while i < len(tekmovanje):
+        if tekmovanje[i] < najpocasnejsi:
+            najpocasnejsi = tekmovanje[i]
+        elif tekmovanje[i] > najhitrejsi:
+            najhitrejsi = tekmovanje[i]
+        i += 1
+    return najhitrejsi - najpocasnejsi
 
 
 

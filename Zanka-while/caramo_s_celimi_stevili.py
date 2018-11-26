@@ -49,6 +49,13 @@ def obrniStevilo(n):
 # Namig: kako delimo "peš"?
 # =============================================================================
 def kvocient(a, b, n):
+    """
+    fun vrne celi del in prvih "n" decimalk
+    kvocienta a/b v obliki niza
+    """
+    r = a/b
+    
+    return str(round(r, n))
     
 # =====================================================================@018458=
 # 3. podnaloga
@@ -66,13 +73,13 @@ def kvocient(a, b, n):
 # Preizkusil jo je na storitvi Projekt Tomo, a je kar naprej dobival obvestila
 # o napačnem rezultatu. Preizkusi jo še ti in jo ustrezno popravi!
 # =============================================================================
-def vsebuje(stevilo, k):
+"""def vsebuje(stevilo, k):
     ''' ali število stevilo vsebuje števko k '''
     while stevilo > 0:
         if stevilo % 10 == k:
             return True
         stevilo = stevilo // 10
-    return False
+    return False"""
 # =====================================================================@018459=
 # 4. podnaloga
 # Sestavi funkcijo `prestejVsebuje(a,b,k)`, ki prešteje,
